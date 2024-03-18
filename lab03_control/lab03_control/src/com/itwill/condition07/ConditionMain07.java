@@ -33,10 +33,8 @@ public class ConditionMain07 {
 		double ave = sum / 3.0; // double ave = (double)sum / 3; 이랑 같다.
 		System.out.println("평균: " + ave);
 		
-		if (java >= 40 && sql >=40 && javascript >=40) {
-			if (ave >= 60) {
+		if (java >= 40 && sql >=40 && javascript >=40 && ave >= 60) {
 				System.out.println("합격");
-			} 
 		} else {
 			System.out.println("불합격");
 		}
