@@ -1,4 +1,4 @@
-package com.itwill.swith02;
+package com.itwill.switch02;
 
 import java.util.Random;
 

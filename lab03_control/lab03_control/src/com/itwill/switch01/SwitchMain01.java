@@ -1,4 +1,4 @@
-package com.itwill.swith01;
+package com.itwill.switch01;
 
 public class SwitchMain01 {
 
@@ -9,8 +9,8 @@ public class SwitchMain01 {
 		// default 블록은 switch 구문에서 항상 가장 마지막에 작성.
 		// default 블록은 없어도 됨. case는 하나 이상은 있어야 한다.
 		// switch (변수 또는 식)에서 사용할 수 있는 타입:
-		// (1) 정수: byte, short, int, long, char
-		// (2) 문자열: String
+		// (1) 정수: byte, short, int, long, char('a', 'A')
+		// (2) 문자열: String("a", "A")
 		// (3) enum 타입
 		// (주의) switch-case 구문에서는 실수(float, double), boolean 타입은 사용 불가!!
 		
