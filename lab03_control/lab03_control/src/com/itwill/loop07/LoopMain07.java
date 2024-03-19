@@ -20,13 +20,13 @@ public class LoopMain07 {
 		}
 		
 		// (2) break 이용하지 않기.
+		
 		for (int x = 2; x < 10; x++) {
 			System.out.println("----- " + x + "단 -----");
 			for (int y = 1; y < 10; y++) {
 				if (x >= y) {
 					System.out.println(x + " x " + y + " = " + (x * y));
 				} else {
-					
 				}
 			}
 			System.out.println("---------------");
