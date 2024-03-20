@@ -11,9 +11,9 @@ public class LoopMain09 {
 			int y = 1;									
 			while (y <= 12) {
 				System.out.printf("%d x %d = %d\n", x, y, (x * y));
-				y++;
+				y++; 
 			}
-			x++;			
+				x++;
 		}
 
 	}
