@@ -31,9 +31,14 @@ public class ArrayMain05 {
     	System.out.println("max = " + max);
     	
         // 배열 원소들 중 최솟값을 찾아서 출력.
-    	
+    	int min = numbers[0];
+    	for (int x : numbers) { // 향상된 for문: numbers의 원소들을 순서대로 꺼냄
+    		if (x < min) {
+    			min = x;
+    		}
+    	}
+    	System.out.println("min = " + min);
     
-        
     }
 
 }
