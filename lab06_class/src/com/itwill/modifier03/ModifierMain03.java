@@ -17,9 +17,17 @@ public class ModifierMain03 {
 		Member member = new Member("guest", "1234");
 		System.out.println("ID: " + member.getMemberId());
 		System.out.println("변경전 PW: " + member.getMemberPassword());
-		
+
 		member.setMemberPassword(null);
 		System.out.println("변경후 PW: " + member.getMemberPassword());
+
+		System.out.println("--------------------");
+		Person person = new Person("홍길동", 16);
+		System.out.println("이름: " + person.getName());
+		System.out.println("변경전 나이: " + person.getAge());
+
+		person.setAge(36);
+		System.out.println("변경후 나이: " + person.getAge());
 	}
 
 }

@@ -15,8 +15,7 @@ public class ModifierMain02 {
 //		com.itwill.modifier01.AccessExample ex1 = new com.itwill.modifier01.AccessExample(1, 2, 3, 4);
 //		System.out.println(ex.b); //-> 컴파일 에러: not visible(보이지 않음)
 		ex.info();
-		
-
+	
 	}
 
 }
