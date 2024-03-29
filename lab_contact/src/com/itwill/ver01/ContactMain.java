@@ -53,26 +53,37 @@ public class ContactMain {
 
 		System.out.print("인덱스 입력>> ");
 		int index = Integer.parseInt(scanner.nextLine());
-		if (index >= 0 && index < count) {
-			System.out.println("수정 전: " + contacts[index].toString());
-
-			System.out.println("이름 수정>> ");
-			String name = scanner.nextLine();
-
-			System.out.println("전화번호 수정>> ");
-			String phone = scanner.nextLine();
-
-			System.out.println("이메일 수정>> ");
-			String email = scanner.nextLine();
-
-			// TODO: 입력한 내용으로 배열의 내용을 업데이트.
-			Contact contact = new Contact(name, phone, email);
-			contacts[index] = contact;
-			System.out.println("수정 후: " + contacts[index].toString());
-		} else {
+		if (index < 0 || index >= count) {
 			System.out.println("저장된 인덱스가 없습니다.");
+			return;
 		}
+		System.out.println("수정 전: " + contacts[index].toString());
 
+		System.out.println("이름 수정>> ");
+		String name = scanner.nextLine();
+
+		System.out.println("전화번호 수정>> ");
+		String phone = scanner.nextLine();
+
+		System.out.println("이메일 수정>> ");
+		String email = scanner.nextLine();
+
+		// 입력한 내용으로 배열의 내용을 업데이트.
+
+		// 내가 한 방법
+//			Contact contact = new Contact(name, phone, email);
+//			contacts[index] = contact;
+
+		// 강사님이 하신 방법(새로운 것을 만드는 방법, 기존에 있던 자료들은 Garbage Collector가 처리)
+		contacts[index] = new Contact(name, phone, email);
+
+		// setter를 이용한 방법
+//			contacts[index].setName(name);
+//			contacts[index].setName(phone);
+//			contacts[index].setName(email);
+
+		System.out.println("수정 후: " + contacts[index].toString());
+		System.out.println("연락처 수정 성공!");
 	}
 
 	private void readContactByIndex() {
@@ -84,39 +95,44 @@ public class ContactMain {
 		if (index >= 0 && index < count) {
 			System.out.println(contacts[index].toString());
 		} else {
-			System.out.println("저장된 인덱스가 없습니다.");
+			System.out.println("해당 인덱스에는 연락처가 없습니다.");
 		}
 	}
 
 	private void readAllContacts() {
 		System.out.println("\n--- 연락처 목록 ---");
+		// 인덱스 0번부터 현재 저장된 연락처 개수보다 작을 때까지
 		for (int i = 0; i < count; i++) {
-			System.out.println(contacts[i].toString());
+			System.out.println(i + " : " + contacts[i].toString());
 		}
 	}
 
 	private void saveNewContact() {
-
 		System.out.println("\n-- 새 연락처 저장 ---");
+
+		// 배열에 저장된 연락처 개수(count)가 배열 최대 길이와 같다면 저장 기능을 종료.
 		if (MAX_LENGTH == count) {
-			System.out.println("더 이상 자리가 없습니다."); //
-		} else {
-			System.out.print("이름 입력>> ");
-			String name = scanner.nextLine();
-
-			System.out.print("전화번호 입력>> ");
-			String phone = scanner.nextLine();
-
-			System.out.print("이메일 입력>> ");
-			String email = scanner.nextLine();
-
-			Contact contact = new Contact(name, phone, email);
-
-			// Contact 타입 객체를 연락처 배열 인덱스 count에 저장
-			contacts[count] = contact;
-			// 배열에 저장 후에는 연락처 저장 개수(인덱스)를 증가
-			count++;
+			System.out.println("저장 공간이 부족합니다.");
+			return; // 메서드 종료
 		}
+
+		System.out.print("이름 입력>> ");
+		String name = scanner.nextLine();
+
+		System.out.print("전화번호 입력>> ");
+		String phone = scanner.nextLine();
+
+		System.out.print("이메일 입력>> ");
+		String email = scanner.nextLine();
+
+		Contact contact = new Contact(name, phone, email);
+
+		// Contact 타입 객체를 연락처 배열 인덱스 count에 저장
+		contacts[count] = contact;
+		// 배열에 저장 후에는 연락처 저장 개수(인덱스)를 증가
+		count++;
+		
+		System.out.println("연락처 저장 성공!");
 	}
 
 	private int showMainMenu() {
