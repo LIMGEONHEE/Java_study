@@ -21,6 +21,7 @@ import java.util.Scanner;
  *   	3. 해시코드 값이 같은 두 객체에서 equals() 메서드의 결과가 항상 true가 될 필요는 없음.
  */
 
+
 class T {
 	@Override
 	public String toString() {
