@@ -38,7 +38,7 @@ public class BusinessPerson extends Person {
 	}
 	
 	public BusinessPerson(String name, String company) {
-		super(name); // 상위클래스의 아규먼트가 1개인 생성자를 "명시적"으로 호출
+//		super(name); // 상위클래스의 아규먼트가 1개인 생성자를 "명시적"으로 호출
 		this.company = company;
 		System.out.println("BusinessPerson(name, company) 생성자");
 	}
