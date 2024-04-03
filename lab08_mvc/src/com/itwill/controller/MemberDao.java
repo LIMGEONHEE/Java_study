@@ -11,14 +11,14 @@ public interface MemberDao {
 	/**
 	 * 새로운 회원 정보를 배열에 저장.
 	 * @param 배열에 저장할 Member 타입 객체.
-	 * @return 배열에 회원 정보를 저자 성공하면 1, 저장 실패하면 0.
+	 * @return 배열에 회원 정보를 저장 성공하면 1, 저장 실패하면 0.
 	 */
 	
 	int create(Member member);
 	
 	/**
-	 * 회원 정체 목록 검색. 회원 정보가 저장된 배열을 리턴.
-	 * @return 회원 정보를 정장하고 있는 배열(Member[(); 
+	 * 회원 전체 목록 검색. 회원 정보가 저장된 배열을 리턴.
+	 * @return 회원 정보를 저장하고 있는 배열(Member[(); 
 	 */
 	Member[] read();
 	
