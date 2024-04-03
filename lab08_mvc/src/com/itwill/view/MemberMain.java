@@ -91,6 +91,7 @@ public class MemberMain {
 	}
 
 	private void saveNewMember() {
+		
 		System.out.println("\n ---- 새 회원 정보 저장 ----");
 
 		System.out.print("아이디를 입력>> ");

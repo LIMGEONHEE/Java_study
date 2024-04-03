@@ -39,21 +39,37 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public Member[] read() {
 		// TODO 배열 members의 원소들 중 null이 아닌 원소들로만 이루어진 배열을 리턴.
-		if (members == null) {
+		// 1개짜리 배열 이 만들어졌으면 1개짜리 새로운 배열을 만들고 원본 배열을 새로운 배열에 넣는건 어떰?
+		Member[] returnMember = new Member[count];
+		for (int i = 0; i < count; i++) {
+			returnMember[i] = members[i];
 		}
-			return members;
+		return returnMember;
 	}
 
 	@Override
 	public Member read(int index) {
-		return members[index];
+		if (index < 0 || index >= MAX_LENGTH) {
+			return null;
+		} else {
+			return members[index];
+		}
 	}
 
 	@Override
 	public int update(int index, String password) {
 		members[index].setPassword(password);
-
 		return 1;
 	}
 
+	public boolean indexRange(int index) {
+		if (index < 0 || index >= MAX_LENGTH) {
+			System.out.println("인덱스 범위 초과 입니다.");
+			return false;
+		} else if (read(index) == null) {
+			System.out.println("인덱스가 비어있습니다.");
+			return false;
+		}
+		return true;
+	}
 }
