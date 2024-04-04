@@ -2,7 +2,7 @@ package com.itwill.controller;
 
 import com.itwill.model.Member;
 
-// MVC 아키텍쳐에서 컨트롤러 역할을 담당할 클래스.
+// MVC 아키텍쳐에서 컨트롤러 역할을 담당할 클래스. -> 싱글턴으로 구현.
 public class MemberDaoImpl implements MemberDao {
 
 	// ------- singleton 구현
@@ -25,51 +25,93 @@ public class MemberDaoImpl implements MemberDao {
 
 	// 회원 배열에 현재까지 저장된 원소의 개수 -> 새로운 회원 정보를 저장할 위치(배열 인덱스)
 	private int count = 0; // 배열에 원소가 추가될 때마다 ++.
+	
+	 /**
+     * 회원 정보를 저장하는 배열이 가득 차 있으면 true, 빈 공간(null)이 있으면 false를 리턴.
+     * @return true/false
+     */
+    public boolean isMemoryFull() {
+        return (count == MAX_LENGTH);
+    }
+
+	/**
+	 * 인덱스가 배열의 유효한 인덱스인 지를 검사. 
+	 * 인덱스가 0 이상이고, 배열에 저장된 원소 개수보다 작으면 true, 그렇지 않으면 false를 리턴.
+	 * @param index 검사할 인덱스(정수).
+	 * @return true/false.
+	 */
+	public boolean isValidIndex(int index) {
+		return (index >= 0) && (index < count);
+	}
 
 	@Override
 	public int create(Member member) {
-		if (count < MAX_LENGTH) {
-			members[count] = member;
-			count++;
-			return 1;
-		}
-		return 0;
+		// 강사님이 푼 방법
+		if (isMemoryFull()) {
+            return 0;
+        }
+        
+        members[count] = member;
+        count++;
+        
+        return 1;
+		// 내가 푼 방법
+//		if (count < MAX_LENGTH) {
+//			members[count] = member;
+//			count++;
+//			return 1;
+//		}
+//		return 0;
 	}
 
 	@Override
 	public Member[] read() {
-		// TODO 배열 members의 원소들 중 null이 아닌 원소들로만 이루어진 배열을 리턴.
-		// 1개짜리 배열 이 만들어졌으면 1개짜리 새로운 배열을 만들고 원본 배열을 새로운 배열에 넣는건 어떰?
-		Member[] returnMember = new Member[count];
+		// 배열 members의 원소들 중 null이 아닌 원소들로만 이루어진 배열을 리턴.
+		Member[] result= new Member[count];
 		for (int i = 0; i < count; i++) {
-			returnMember[i] = members[i];
+			result[i] = members[i];
 		}
-		return returnMember;
+		
+		return result;
 	}
 
 	@Override
 	public Member read(int index) {
-		if (index < 0 || index >= MAX_LENGTH) {
-			return null;
-		} else {
-			return members[index];
-		}
+		// 강사님이 푼 방법
+		 if (isValidIndex(index)) {
+	            return members[index];
+	        } else {
+	            return null;
+	        }
+		// 내가 푼 방법
+//		if (index <= 0 || index >= MAX_LENGTH) {
+//			return null;
+//		} else {
+//			return members[index];
+//		}
 	}
 
 	@Override
 	public int update(int index, String password) {
-		members[index].setPassword(password);
-		return 1;
-	}
-
-	public boolean indexRange(int index) {
-		if (index < 0 || index >= MAX_LENGTH) {
-			System.out.println("인덱스 범위 초과 입니다.");
-			return false;
-		} else if (read(index) == null) {
-			System.out.println("인덱스가 비어있습니다.");
-			return false;
-		}
-		return true;
-	}
+	// 강사님이 푼 방법
+	if (isValidIndex(index)) {
+        members[index].setPassword(password);
+        return 1;
+    } else {
+        return 0;
+    }
+}
+	// 내가 푼 방법
+//	members[index].setPassword(password);
+//	return 1;
+//	public boolean indexRange(int index) {
+//		if (index < 0 || index >= MAX_LENGTH) {
+//			System.out.println("인덱스 범위 초과 입니다.");
+//			return false;
+//		} else if (read(index) == null) {
+//			System.out.println("인덱스가 비어있습니다.");
+//			return false;
+//		}
+//		return true;
+//	}
 }
