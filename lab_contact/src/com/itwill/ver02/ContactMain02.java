@@ -48,14 +48,14 @@ public class ContactMain02 {
 		System.out.println("\n--- 연락처 수정 ---");
 
 		System.out.print("인덱스 입력>> ");
-		int index = Integer.parseInt(scanner.nextLine());
+		int index = inputInteger();
 		if (!((ContactDaoImpl) dao).isValidIndex(index)) {
 			System.out.println("저장된 인덱스가 없습니다.");
 			return;
 		}
 
-		Contact contact = dao.read(index);
-		System.out.println("수정 전: " + contact);
+		Contact old = dao.read(index);
+		System.out.println("수정 전: " + old);
 
 		System.out.println("이름 수정>> ");
 		String name = scanner.nextLine();
@@ -67,6 +67,7 @@ public class ContactMain02 {
 		String email = scanner.nextLine();
 
 		Contact updated = new Contact(name, phone, email);
+		
 		int result = dao.update(index, updated);
         if (result == 1) {
             System.out.println(">>> 연락처 수정 성공");
@@ -79,7 +80,7 @@ public class ContactMain02 {
 		System.out.println("\n--- 연락처 검색 ---");
 		
 		System.out.print("검색할 연락처 입력>> ");
-		int index = Integer.parseInt(scanner.nextLine());
+		int index = inputInteger();
 
 		Contact contact = dao.read(index);
 		if (contact != null) {
@@ -129,11 +130,11 @@ public class ContactMain02 {
 	}
 
 	private int showMainMenu() {
-		System.out.println("\n------------------------------------------------");
-		System.out.println("[0]종료 [1]저장 [2]목록 [3]인덱스 검색 [4]수정");
-		System.out.println("\n------------------------------------------------");
+		System.out.println("\n┌──────────────────────────────────────────────┐");
+		System.out.print("│[0]종료 [1]저장 [2]목록 [3]인덱스 검색 [4]수정│");
+		System.out.println("\n└──────────────────────────────────────────────┘");
 		System.out.print("선택> ");
-		int menu = Integer.parseInt(scanner.nextLine());
+		int menu = inputInteger();
 
 		return menu;
 	}
