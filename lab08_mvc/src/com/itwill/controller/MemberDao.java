@@ -8,11 +8,13 @@ public interface MemberDao {
 	
 	int MAX_LENGTH = 3; // 배열의 최대 길이
 	
+	
 	/**
 	 * 새로운 회원 정보를 배열에 저장.
 	 * @param member 배열에 저장할 Member 타입 객체.
 	 * @return 배열에 회원 정보를 저장 성공하면 1, 저장 실패하면 0.
 	 */
+	
 	
 	int create(Member member);
 	

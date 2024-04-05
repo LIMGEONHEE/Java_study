@@ -67,7 +67,7 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public Member[] read() {
 		// 배열 members의 원소들 중 null이 아닌 원소들로만 이루어진 배열을 리턴.
-		Member[] result= new Member[count];
+		Member[] result = new Member[count];
 		for (int i = 0; i < count; i++) {
 			result[i] = members[i];
 		}
