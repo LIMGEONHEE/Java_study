@@ -1,5 +1,6 @@
 package com.itwill.ver03;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.itwill.ver01.Contact;
@@ -107,7 +108,7 @@ public class ContactMain03 {
     private void readAllContacts() {
         System.out.println("\n--- 연락처 목록 ---");
         
-        Contact[] contacts = dao.read();
+        List<Contact> contacts = (List<Contact>) dao.read();
         int index = 0;
         for (Contact c : contacts) {
             if (c != null) {
