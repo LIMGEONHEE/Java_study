@@ -20,20 +20,15 @@ public class ContactDaoImpl implements ContactDao {
 		return instance;
 	}
 
-	public boolean isMemoryFull() {
-		return (count ==);
-	}
 	private List<Contact> contacts = new ArrayList<>();
-	private int count = 0;
+	
 
 	@Override
 	public int create(Contact contact) {
-		if (isMemoryFull()) {
-			return 0;
+		contacts.add(contact);
+		return 1;
 		}
 
-		return 1;
-	}
 
 	@Override
 	public List<Contact> read() {
@@ -43,28 +38,22 @@ public class ContactDaoImpl implements ContactDao {
 
 	@Override
 	public Contact read(int index) {
-		if (isValidIndex(index)) {
-			return index;
-		} else {
-			return null;
-		}
+		return contacts.get(index);
 	}
 
 	@Override
 	public int update(int index, Contact contact) {
-		if (isValidIndex(index) && contact != null) {
-			return 1;
-		} else {
-			return 0;
-		}
-		
+		contacts.set(index, contact);
+		return 1;
 	}
 
 	@Override
 	public int delete(int index) {
-		
-		return 0;
+		contacts.remove(index);
+		return 1;
 	}
 
+	
 
 }
+
