@@ -40,6 +40,11 @@ public class LambdaMain02 {
 		// numbers에서 짝수들만 선택(필터링)
 		List<Object> evens = app.filter(numbers, (x) -> (Integer)x % 2 == 0);
 		System.out.println(evens);
+		
+		List<Object> languages = Arrays.asList("Java", "SQL", "HTML", "JavaScript", "Python");
+		// languages의 원소들 중 문자열의 길이가 5자 이상인 원소들만 선택(필터링)
+		List<Object> longWords = app.filter(languages, (x) -> ((String)x).length() >= 5);
+		System.out.println(longWords);
 
 	}
 
