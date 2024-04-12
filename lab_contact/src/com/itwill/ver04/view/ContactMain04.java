@@ -142,6 +142,7 @@ public class ContactMain04 {
 
 		System.out.print("이메일 입력>> ");
 		String email = scanner.nextLine();
+		
 
 		Contact contact = new Contact(0, name, phone, email);
 		int result = dao.create(contact);
