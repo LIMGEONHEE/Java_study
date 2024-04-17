@@ -11,14 +11,20 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class AppMain05 {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextArea textResult;
+	private JTextField textName;
+	private JTextField textPhone;
+	private JTextField textEmail;
+	private JLabel lblName;
+	private JLabel lblPhone;
+	private JLabel lblEmail;
+	private JButton btnButton;
+	private JScrollPane scrollPane;
+	private JTextArea textArea;
 
 	/**
 	 * Launch the application.
@@ -51,58 +57,74 @@ public class AppMain05 {
 		frame.setBounds(100, 100, 500, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JLabel lblName = new JLabel("이름");
+
+		lblName = new JLabel("이름");
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setFont(new Font("D2Coding", Font.BOLD, 20));
 		lblName.setBounds(22, 37, 110, 30);
 		frame.getContentPane().add(lblName);
-		
-		JLabel lblNumber = new JLabel("전화번호");
-		lblNumber.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNumber.setFont(new Font("D2Coding", Font.BOLD, 20));
-		lblNumber.setBounds(22, 87, 110, 39);
-		frame.getContentPane().add(lblNumber);
-		
-		JLabel lblEmail = new JLabel("이메일");
+
+		lblPhone = new JLabel("전화번호");
+		lblPhone.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPhone.setFont(new Font("D2Coding", Font.BOLD, 20));
+		lblPhone.setBounds(22, 87, 110, 39);
+		frame.getContentPane().add(lblPhone);
+
+		lblEmail = new JLabel("이메일");
 		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEmail.setFont(new Font("D2Coding", Font.BOLD, 20));
 		lblEmail.setBounds(22, 136, 110, 39);
 		frame.getContentPane().add(lblEmail);
-		
-		textField = new JTextField();
-		textField.setBounds(144, 37, 225, 30);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(144, 87, 225, 30);
-		frame.getContentPane().add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(144, 136, 225, 30);
-		frame.getContentPane().add(textField_2);
-		
-		JButton btnButton = new JButton("입력");
-		btnButton.addActionListener(new ActionListener() {
+
+		textName = new JTextField();
+		textName.setBounds(144, 37, 225, 30);
+		frame.getContentPane().add(textName);
+		textName.setColumns(10);
+
+		textPhone = new JTextField();
+		textPhone.setColumns(10);
+		textPhone.setBounds(144, 87, 225, 30);
+		frame.getContentPane().add(textPhone);
+
+		textEmail = new JTextField();
+		textEmail.setColumns(10);
+		textEmail.setBounds(144, 136, 225, 30);
+		frame.getContentPane().add(textEmail);
+
+		btnButton = new JButton("입력");
+		btnButton.addActionListener(new ActionListener() { // 익명 내부 클래스
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				String name = textField.getText();
-				String number = textField_1.getText();
-				String email = textField_2.getText();
-				
-				String msg = String.format("%s : %s : %s", name, number, email);
-				textResult.setText(msg);
+				handleInputButtonClick();
 			}
 		});
 		btnButton.setBounds(375, 131, 97, 39);
 		frame.getContentPane().add(btnButton);
-		
-		textResult = new JTextArea();
-		textResult.setBounds(22, 198, 450, 180);
-		frame.getContentPane().add(textResult);
 
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 199, 440, 202);
+		frame.getContentPane().add(scrollPane);
+
+		textArea = new JTextArea();
+		textArea.setFont(new Font("D2Coding", Font.BOLD, 20));
+		scrollPane.setViewportView(textArea);
+
+	}
+
+	private void handleInputButtonClick() {
+		// JTextField(이름, 전화번호, 이메일)에 입력된 문자열을 읽음.
+		String name = textName.getText();
+		String phone = textPhone.getText();
+		String email = textEmail.getText();
+		String msg = String.format("이름: %s, 전화번호: %s, 이메일: %s\n", name, phone, email);
 		
+		// 이름, 전화번호, 이메일을 JTextArea에 씀.
+//		textArea.setText(msg);
+		textArea.append(msg); // 기존에 작성된 내용 끝에 추가.
+		
+		// 모든 JTextField의 입력된 내용을 지움.
+		textName.setText("");
+		textPhone.setText("");
+		textEmail.setText("");
 	}
 }
