@@ -20,7 +20,9 @@ public class ContactDaoImpl implements ContactDao {
 		}
 		return instance;
 	}
-
+	
+	//----- singleton
+	
 	private List<Contact> contacts = new ArrayList<>();
 
 	@Override
