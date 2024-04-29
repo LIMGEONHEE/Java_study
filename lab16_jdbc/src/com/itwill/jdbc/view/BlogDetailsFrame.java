@@ -199,7 +199,7 @@ public class BlogDetailsFrame extends JFrame {
     private void updateBlog() {
         String title = textTitle.getText();
         String content = textContent.getText();
-        if (title.equals("") || title.equals("")) {
+        if (title.equals("") || content.equals("")) {
             JOptionPane.showMessageDialog(this, 
                     "제목과 내용은 반드시 입력해야 합니다.", 
                     "경고", JOptionPane.WARNING_MESSAGE);
