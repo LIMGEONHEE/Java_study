@@ -20,14 +20,14 @@ public class JdbcMain04 {
 				
 		// 오라클 DB 접속
 		Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-				
+		
 		final String sql = "delete from blogs where id = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		
 		 stmt.setInt(1, 1);
 		
-		int result = stmt.executeUpdate();
-		System.out.print(result + "개 행이 삭제 됨.");
+		int result = stmt.executeUpdate(); // SQL 실행
+		System.out.print(result + "개 행이 삭제 됨."); // 실행 결과 출력
 		
 		stmt.close();
 		conn.close();
