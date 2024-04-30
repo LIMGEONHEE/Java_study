@@ -18,6 +18,8 @@ import java.awt.SystemColor;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -25,6 +27,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class LibrarySearchFrame extends JFrame {
+	
+	private static final String[] SEARCH_TYPES  = { 
+            "제목", "저자", "제목+저자" 
+    };
 	
 	private static final String[] COLUMN_NAMES = {
             "책 제목", "저자", "출판사", "대출가능여부"
@@ -107,6 +113,9 @@ public class LibrarySearchFrame extends JFrame {
 		contentPane.add(searchPanel);
 		
 		comboBox = new JComboBox();
+		final DefaultComboBoxModel<String> comboBoxModel = 
+                new DefaultComboBoxModel<>(SEARCH_TYPES);
+        comboBox.setModel(comboBoxModel);
 		comboBox.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(comboBox);
 		
@@ -132,7 +141,10 @@ public class LibrarySearchFrame extends JFrame {
 		
 		btnInfo = new JButton("상세보기");
 		btnInfo.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				// 도서 상세정보 창 띄우기
+				LibraryDetailFrame.showLibraryDetailFrame(parent);
 			}
 		});
 		btnInfo.setBackground(new Color(255, 255, 255));

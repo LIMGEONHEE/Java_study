@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LibraryDetailFrame extends JFrame {
 
@@ -145,6 +147,7 @@ public class LibraryDetailFrame extends JFrame {
 		panel.add(textId);
 		
 		JButton btnClose = new JButton("닫기");
+		btnClose.addActionListener((e) -> dispose());
 		btnClose.setFont(new Font("D2Coding", Font.BOLD, 25));
 		btnClose.setBounds(208, 515, 119, 34);
 		panel.add(btnClose);

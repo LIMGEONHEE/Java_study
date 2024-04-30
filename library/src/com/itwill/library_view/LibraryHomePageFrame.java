@@ -17,11 +17,17 @@ import java.awt.SystemColor;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class LibraryHomePageFrame extends JFrame {
+	
+	private static final String[] SEARCH_TYPES  = { 
+            "제목", "저자", "제목+저자" 
+    };
 	
 	private JFrame frame;
 
@@ -40,24 +46,24 @@ public class LibraryHomePageFrame extends JFrame {
 	private JLabel lblBestBooks;
 	
 	private Component parent;
-	private JButton btnNew1;
-	private JButton btnNew2;
-	private JButton btnNew3;
-	private JButton btnNew4;
+	private JButton btnBest1;
+	private JButton btnBest2;
+	private JButton btnBest3;
+	private JButton btnBest4;
 	private JTextField textBest1;
 	private JTextField textBest2;
 	private JTextField textBest3;
 	private JTextField textBest4;
 	private JPanel panelNewBooks;
 	private JLabel lblNewBooks;
-	private JButton btnNew1_1;
-	private JButton btnNew2_1;
-	private JButton btnNew3_1;
-	private JButton btnNew4_1;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JButton btnNew1;
+	private JButton btnNew2;
+	private JButton btnNew3;
+	private JButton btnNew4;
+	private JTextField textNew1;
+	private JTextField textNew2;
+	private JTextField textNew3;
+	private JTextField textNew4;
 
 
 	/**
@@ -120,6 +126,9 @@ public class LibraryHomePageFrame extends JFrame {
 		contentPane.add(searchPanel);
 		
 		comboBox = new JComboBox();
+		final DefaultComboBoxModel<String> comboBoxModel = 
+                new DefaultComboBoxModel<>(SEARCH_TYPES);
+        comboBox.setModel(comboBoxModel);
 		comboBox.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(comboBox);
 		
@@ -176,36 +185,53 @@ public class LibraryHomePageFrame extends JFrame {
 		lblBestBooks.setFont(new Font("D2Coding", Font.BOLD, 20));
 		panelBestBooks.add(lblBestBooks);
 		
-		btnNew1 = new JButton("");
-		btnNew1.addActionListener(new ActionListener() {
+		btnBest1 = new JButton("");
+		btnBest1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 도서 상세 창 띄우기
 				LibraryDetailFrame.showLibraryDetailFrame(frame);
 			}
 		});
-		btnNew1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\22.jpg"));
-		btnNew1.setBounds(29, 31, 90, 139);
-		panelBestBooks.add(btnNew1);
+		btnBest1.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\22.jpg"));
+		btnBest1.setBounds(29, 31, 90, 139);
+		panelBestBooks.add(btnBest1);
 		
-		btnNew2 = new JButton("");
-		btnNew2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\3434.jpg"));
-		btnNew2.setBounds(161, 31, 97, 139);
-		panelBestBooks.add(btnNew2);
-		
-		btnNew3 = new JButton("");
-		btnNew3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\112e.jpg"));
-		btnNew3.addActionListener(new ActionListener() {
+		btnBest2 = new JButton("");
+		btnBest2.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				// 도서 상세 창 띄우기
+				LibraryDetailFrame.showLibraryDetailFrame(frame);
 			}
 		});
-		btnNew3.setBounds(305, 31, 90, 139);
-		panelBestBooks.add(btnNew3);
+		btnBest2.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\3434.jpg"));
+		btnBest2.setBounds(161, 31, 97, 139);
+		panelBestBooks.add(btnBest2);
 		
-		btnNew4 = new JButton("");
-		btnNew4.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\rkrhq (1).jpg"));
-		btnNew4.setBounds(439, 31, 90, 139);
-		panelBestBooks.add(btnNew4);
+		btnBest3 = new JButton("");
+		btnBest3.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\112e.jpg"));
+		btnBest3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 도서 상세 창 띄우기
+				LibraryDetailFrame.showLibraryDetailFrame(frame);
+			}
+		});
+		btnBest3.setBounds(305, 31, 90, 139);
+		panelBestBooks.add(btnBest3);
+		
+		btnBest4 = new JButton("");
+		btnBest4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 도서 상세 창 띄우기
+				LibraryDetailFrame.showLibraryDetailFrame(frame);
+			}
+		});
+		btnBest4.setIcon(new ImageIcon("C:\\Users\\itwill\\Downloads\\rkrhq (1).jpg"));
+		btnBest4.setBounds(439, 31, 90, 139);
+		panelBestBooks.add(btnBest4);
 		
 		textBest1 = new JTextField();
 		textBest1.setBackground(Color.WHITE);
@@ -250,52 +276,52 @@ public class LibraryHomePageFrame extends JFrame {
 		lblNewBooks.setBounds(220, 0, 80, 24);
 		panelNewBooks.add(lblNewBooks);
 		
-		btnNew1_1 = new JButton("");
-		btnNew1_1.setBounds(29, 31, 90, 139);
-		panelNewBooks.add(btnNew1_1);
+		btnNew1 = new JButton("");
+		btnNew1.setBounds(29, 31, 90, 139);
+		panelNewBooks.add(btnNew1);
 		
-		btnNew2_1 = new JButton("");
-		btnNew2_1.setBounds(161, 31, 97, 139);
-		panelNewBooks.add(btnNew2_1);
+		btnNew2 = new JButton("");
+		btnNew2.setBounds(161, 31, 97, 139);
+		panelNewBooks.add(btnNew2);
 		
-		btnNew3_1 = new JButton("");
-		btnNew3_1.setBounds(305, 31, 90, 139);
-		panelNewBooks.add(btnNew3_1);
+		btnNew3 = new JButton("");
+		btnNew3.setBounds(305, 31, 90, 139);
+		panelNewBooks.add(btnNew3);
 		
-		btnNew4_1 = new JButton("");
-		btnNew4_1.setBounds(439, 31, 90, 139);
-		panelNewBooks.add(btnNew4_1);
+		btnNew4 = new JButton("");
+		btnNew4.setBounds(439, 31, 90, 139);
+		panelNewBooks.add(btnNew4);
 		
-		textField = new JTextField();
-		textField.setText("---");
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
-		textField.setColumns(10);
-		textField.setBounds(12, 174, 124, 21);
-		panelNewBooks.add(textField);
+		textNew1 = new JTextField();
+		textNew1.setText("---");
+		textNew1.setHorizontalAlignment(SwingConstants.CENTER);
+		textNew1.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
+		textNew1.setColumns(10);
+		textNew1.setBounds(12, 174, 124, 21);
+		panelNewBooks.add(textNew1);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("--");
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
-		textField_1.setColumns(10);
-		textField_1.setBounds(148, 174, 124, 21);
-		panelNewBooks.add(textField_1);
+		textNew2 = new JTextField();
+		textNew2.setText("--");
+		textNew2.setHorizontalAlignment(SwingConstants.CENTER);
+		textNew2.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
+		textNew2.setColumns(10);
+		textNew2.setBounds(148, 174, 124, 21);
+		panelNewBooks.add(textNew2);
 		
-		textField_2 = new JTextField();
-		textField_2.setText("---");
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
-		textField_2.setColumns(10);
-		textField_2.setBounds(288, 175, 124, 21);
-		panelNewBooks.add(textField_2);
+		textNew3 = new JTextField();
+		textNew3.setText("---");
+		textNew3.setHorizontalAlignment(SwingConstants.CENTER);
+		textNew3.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
+		textNew3.setColumns(10);
+		textNew3.setBounds(288, 175, 124, 21);
+		panelNewBooks.add(textNew3);
 		
-		textField_3 = new JTextField();
-		textField_3.setText("//");
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
-		textField_3.setColumns(10);
-		textField_3.setBounds(424, 175, 124, 21);
-		panelNewBooks.add(textField_3);
+		textNew4 = new JTextField();
+		textNew4.setText("//");
+		textNew4.setHorizontalAlignment(SwingConstants.CENTER);
+		textNew4.setFont(new Font("D2Coding ligature", Font.PLAIN, 13));
+		textNew4.setColumns(10);
+		textNew4.setBounds(424, 175, 124, 21);
+		panelNewBooks.add(textNew4);
 	}
 }

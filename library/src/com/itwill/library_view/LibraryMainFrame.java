@@ -92,7 +92,7 @@ public class LibraryMainFrame {
 			}
 		});
 		btnNewAccount.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnNewAccount.setBounds(180, 396, 151, 67);
+		btnNewAccount.setBounds(92, 447, 151, 54);
 		frame.getContentPane().add(btnNewAccount);
 		
 		btnLogin = new JButton("로그인");
@@ -106,12 +106,12 @@ public class LibraryMainFrame {
 			}
 		});
 		btnLogin.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnLogin.setBounds(17, 396, 151, 67);
+		btnLogin.setBounds(92, 390, 317, 47);
 		frame.getContentPane().add(btnLogin);
 		
 		btnAccountSearch = new JButton("찾기");
 		btnAccountSearch.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnAccountSearch.setBounds(343, 396, 151, 67);
+		btnAccountSearch.setBounds(255, 447, 151, 54);
 		frame.getContentPane().add(btnAccountSearch);
 	}
 }
