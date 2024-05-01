@@ -17,7 +17,7 @@ public class LibraryMainFrame {
 
 	private JFrame frame;
 	private JTextField textiD;
-	private JLabel lblLibraryName;
+	private JLabel lblName;
 	private JLabel lblId;
 	private JLabel lblPw;
 	private JButton btnNewAccount;
@@ -58,11 +58,11 @@ public class LibraryMainFrame {
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("로그인");
 		
-		lblLibraryName = new JLabel("Iwill 도서관");
-		lblLibraryName.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLibraryName.setFont(new Font("D2Coding", Font.BOLD, 60));
-		lblLibraryName.setBounds(33, 88, 448, 83);
-		frame.getContentPane().add(lblLibraryName);
+		lblName = new JLabel("I'will 독서왕");
+		lblName.setHorizontalAlignment(SwingConstants.CENTER);
+		lblName.setFont(new Font("D2Coding", Font.BOLD, 60));
+		lblName.setBounds(33, 88, 448, 83);
+		frame.getContentPane().add(lblName);
 		
 		textiD = new JTextField();
 		textiD.setFont(new Font("굴림", Font.BOLD, 20));

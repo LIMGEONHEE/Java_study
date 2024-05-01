@@ -6,7 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
@@ -51,6 +54,8 @@ public class LibrarySearchFrame extends JFrame {
 	private DefaultTableModel tableModel;
 	
 	private Component parent;
+	
+	private JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -144,7 +149,7 @@ public class LibrarySearchFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 도서 상세정보 창 띄우기
-				LibraryDetailFrame.showLibraryDetailFrame(parent);
+//				LibraryDetailFrame.showLibraryDetailFrame(parent, 1);
 			}
 		});
 		btnInfo.setBackground(new Color(255, 255, 255));
@@ -171,4 +176,19 @@ public class LibrarySearchFrame extends JFrame {
         table.setModel(tableModel);
 		scrollPane.setViewportView(table);
 	}
-}
+	
+	private void showLibraryDetailFrame() {
+        int index = table.getSelectedRow(); // 테이블에서 선택된 행의 인덱스
+        if (index == -1) { // JTable에서 선택된 행이 없을 때
+            JOptionPane.showMessageDialog(
+                    frame, 
+                    "상세보기할 행을 먼저 선택하세요.", 
+                    "경고", 
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Integer id = (Integer) tableModel.getValueAt(index, 1);
+        
+//       LibraryDetailFrame.showLibraryDetailFrame(parent, 1);
+	}
+	}
