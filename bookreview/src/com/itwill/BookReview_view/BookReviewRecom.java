@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -13,13 +11,13 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
 
-public class BookReviewWantTO extends JFrame {
+public class BookReviewRecom extends JFrame {
 	
 	private static final String[] SEARCH_TYPES  = { 
             "제목", "저자", "제목+저자" 
@@ -38,18 +36,21 @@ public class BookReviewWantTO extends JFrame {
 	private JButton btnHome;
 	private JButton btnReadAll;
 	private JButton btnCreat;
-	private JButton btnLogout;
-	private JButton btnDelete;
+	private JButton btnDetail;
 	private JTable table;
-
+	private JButton btnDelete;
+	private JTable tableRecomBook;
+	private JButton btnClose;
+	private JButton btnDetailBook;
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void showBookReviewUnRead(Component parent) {
+	public static void showBookReviewRecom(Component parent) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BookReviewWantTO frame = new BookReviewWantTO(parent);
+					BookReviewRecom frame = new BookReviewRecom(parent);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -61,33 +62,23 @@ public class BookReviewWantTO extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	private BookReviewWantTO(Component parent) {
+	private BookReviewRecom(Component parent) {
 		this.parent = parent;
-
+		
 		initialize();
 	}
 	
 	public void initialize() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-		int x = 0;
-		int y = 0;
-		if (parent != null) {
-			x = parent.getX(); // 부모 컴포넌트의 x 좌표
-			y = parent.getY(); // 부모 컴포넌트의 y 좌표
-		}
-		setBounds(x, y, 600, 600);
-
-		if (parent == null) {
-			setLocationRelativeTo(null); // 화면 중앙에 JFrame을 띄움.
-		}
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 600, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		
 		contentPane.setLayout(null);
 
-		lblName = new JLabel("읽고 싶은 책");
+		lblName = new JLabel("추천 도서");
 		lblName.setForeground(new Color(0, 0, 0));
 		lblName.setBackground(new Color(255, 255, 255));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -114,53 +105,29 @@ public class BookReviewWantTO extends JFrame {
 		btnSearch = new JButton("검색");
 		btnSearch.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(btnSearch);
-
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 105, 562, 394);
+		contentPane.add(scrollPane);
+		
+		tableRecomBook = new JTable();
+		scrollPane.setViewportView(tableRecomBook);
+		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 509, 584, 52);
 		contentPane.add(panel);
 		panel.setLayout(null);
-
-		btnHome = new JButton("홈");
-		btnHome.setBounds(0, 4, 113, 43);
-		btnHome.setBackground(new Color(255, 255, 255));
-		btnHome.setForeground(new Color(0, 0, 0));
-		btnHome.setFont(new Font("D2Coding", Font.BOLD, 20));
-		panel.add(btnHome);
-
-		btnReadAll = new JButton("목록보기");
-		btnReadAll.setBounds(113, 4, 113, 43);
-		btnReadAll.setBackground(new Color(255, 255, 255));
-		btnReadAll.setFont(new Font("D2Coding", Font.BOLD, 20));
-		panel.add(btnReadAll);
-
-		btnCreat = new JButton("");
-		btnCreat.setBounds(226, 4, 113, 43);
-		btnCreat.setBackground(new Color(255, 255, 255));
-		btnCreat.setFont(new Font("D2Coding", Font.BOLD, 20));
-		panel.add(btnCreat);
 		
-		btnDelete = new JButton("");
-		btnDelete.setBounds(339, 4, 113, 43);
-		btnDelete.setFont(new Font("D2Coding", Font.BOLD, 20));
-		btnDelete.setBackground(Color.WHITE);
-		panel.add(btnDelete);
-
-		btnLogout = new JButton("로그아웃");
-		btnLogout.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnLogout.setBounds(459, 4, 113, 43);
-		btnLogout.setBackground(new Color(255, 255, 255));
-		btnLogout.setFont(new Font("D2Coding", Font.BOLD, 20));
-		panel.add(btnLogout);
-
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 105, 584, 404);
-		contentPane.add(scrollPane);
-
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		btnClose = new JButton("닫기");
+		btnClose.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnClose.setBackground(Color.WHITE);
+		btnClose.setBounds(376, 0, 146, 52);
+		panel.add(btnClose);
+		
+		btnDetailBook = new JButton("상세보기");
+		btnDetailBook.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnDetailBook.setBackground(Color.WHITE);
+		btnDetailBook.setBounds(97, 0, 146, 52);
+		panel.add(btnDetailBook);
 	}
-
 }

@@ -35,13 +35,20 @@ public class BookReviewHome extends JFrame {
 	private JTextField textSearchKeyword;
 	private JComboBox comboBox;
 	private JButton btnSearch;
-	private JButton btnAllbooks;
+	private JButton btnHome;
 	private JButton btnInfo;
 	private JButton btnMyBooks;
 	private JButton btnLogout;
 	
 	private Component parent;
-	private JTable table;
+	private JPanel panelRecom;
+	private JLabel lblRecom;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_1_1;
+	private JLabel lblNewLabel_1_2;
+	private JLabel lblNewLabel_1_3;
+	private JLabel lblNewLabel_1_2_1;
+	private JLabel lblNewLabel_1_1_1;
 
 	/**
 	 * Launch the application.
@@ -123,13 +130,13 @@ contentPane.setLayout(null);
 		contentPane.add(panel);
 		panel.setLayout(new GridLayout(0, 4, 0, 0));
 		
-		btnAllbooks = new JButton("모든 책");
-		btnAllbooks.setBackground(new Color(255, 255, 255));
-		btnAllbooks.setForeground(new Color(0, 0, 0));
-		btnAllbooks.setFont(new Font("D2Coding", Font.BOLD, 20));
-		panel.add(btnAllbooks);
+		btnHome = new JButton("홈");
+		btnHome.setBackground(new Color(255, 255, 255));
+		btnHome.setForeground(new Color(0, 0, 0));
+		btnHome.setFont(new Font("D2Coding", Font.BOLD, 20));
+		panel.add(btnHome);
 		
-		btnInfo = new JButton("내 독서기록");
+		btnInfo = new JButton("내 서재");
 		btnInfo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -142,12 +149,12 @@ contentPane.setLayout(null);
 		btnInfo.setFont(new Font("D2Coding", Font.BOLD, 20));
 		panel.add(btnInfo);
 		
-		btnMyBooks = new JButton("읽고 싶은 책");
+		btnMyBooks = new JButton("관심 도서");
 		btnMyBooks.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 읽지 않은 책 페이지 창 띄우기
-				BookReviewWantTO.showBookReviewUnRead(parent);
+				BookReviewWantTo.showBookReviewUnRead(parent);
 				parent.setVisible(false);
 				
 			}
@@ -161,11 +168,43 @@ contentPane.setLayout(null);
 		btnLogout.setFont(new Font("D2Coding", Font.BOLD, 20));
 		panel.add(btnLogout);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 105, 584, 404);
-		contentPane.add(scrollPane);
+		panelRecom = new JPanel();
+		panelRecom.setBounds(12, 105, 560, 394);
+		contentPane.add(panelRecom);
+		panelRecom.setLayout(null);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		lblRecom = new JLabel("<추천 도서>");
+		lblRecom.setFont(new Font("D2Coding", Font.BOLD, 25));
+		lblRecom.setBounds(12, 10, 269, 43);
+		panelRecom.add(lblRecom);
+		
+		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(12, 63, 135, 143);
+		panelRecom.add(lblNewLabel_1);
+		
+		lblNewLabel_1_1 = new JLabel("New label");
+		lblNewLabel_1_1.setBounds(413, 63, 135, 143);
+		panelRecom.add(lblNewLabel_1_1);
+		
+		lblNewLabel_1_2 = new JLabel("New label");
+		lblNewLabel_1_2.setBounds(212, 63, 135, 143);
+		panelRecom.add(lblNewLabel_1_2);
+		
+		lblNewLabel_1_3 = new JLabel("New label");
+		lblNewLabel_1_3.setBounds(12, 241, 135, 143);
+		panelRecom.add(lblNewLabel_1_3);
+		
+		lblNewLabel_1_2_1 = new JLabel("New label");
+		lblNewLabel_1_2_1.setBounds(212, 241, 135, 143);
+		panelRecom.add(lblNewLabel_1_2_1);
+		
+		lblNewLabel_1_1_1 = new JLabel("New label");
+		lblNewLabel_1_1_1.setBounds(413, 241, 135, 143);
+		panelRecom.add(lblNewLabel_1_1_1);
+		
+		JButton btnMore = new JButton("더 보기...");
+		btnMore.setFont(new Font("D2Coding", Font.PLAIN, 15));
+		btnMore.setBounds(439, 21, 109, 32);
+		panelRecom.add(btnMore);
 	}
 }
