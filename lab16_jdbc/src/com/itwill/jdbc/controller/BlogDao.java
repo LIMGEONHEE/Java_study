@@ -316,6 +316,7 @@ public class BlogDao {
             stmt.setString(1, blog.getTitle());
             stmt.setString(2, blog.getContent());
             stmt.setInt(3, blog.getId());
+            
             result = stmt.executeUpdate();
             
         } catch (SQLException e) {

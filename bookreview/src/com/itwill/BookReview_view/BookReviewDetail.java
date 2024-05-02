@@ -105,6 +105,7 @@ public class BookReviewDetail extends JFrame {
 		textIsbn.setColumns(10);
 		textIsbn.setBounds(87, 13, 195, 37);
 		contentPane.add(textIsbn);
+		textIsbn.setColumns(10);
 		
 		lblCategory = new JLabel("분류");
 		lblCategory.setFont(new Font("D2Coding", Font.BOLD, 23));

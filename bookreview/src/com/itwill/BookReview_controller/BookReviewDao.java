@@ -318,6 +318,7 @@ public class BookReviewDao {
         
         Connection conn = null;
         PreparedStatement stmt = null;
+        
         try {
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
             stmt = conn.prepareStatement(SQL_UPDATE);

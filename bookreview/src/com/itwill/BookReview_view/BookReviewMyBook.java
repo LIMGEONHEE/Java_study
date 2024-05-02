@@ -150,15 +150,7 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 		panel.setLayout(null);
 
 		btnHome = new JButton("홈");
-		btnHome.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// 홈 화면 띄우기
-				BookReviewHome.showBookReviewHome(parent);
-				parent.setVisible(false); // 버튼을 누르면 창 끄기
-				
-			}
-		});
+		btnHome.addActionListener((e)->dispose());
 		btnHome.setBounds(0, 4, 113, 43);
 		btnHome.setBackground(new Color(255, 255, 255));
 		btnHome.setForeground(new Color(0, 0, 0));
