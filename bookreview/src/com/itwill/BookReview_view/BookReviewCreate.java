@@ -18,14 +18,21 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JComboBox;
 
 public class BookReviewCreate extends JFrame {
+	
+	private static final String[] SEARCH_TYPES  = { 
+            "(분류)", "소설", "자기계발", "시", "만화", 
+            "요리" , "여행", "예술"
+    };
 	
 	public interface CreateNotify {
         void notifyCreateSuccess();
@@ -44,6 +51,7 @@ public class BookReviewCreate extends JFrame {
 	 private JTextField textWriter;
 	 private JTextField textPublisher;
 	 private JTextArea textBookReview;
+	 private JComboBox comboBoxCategory;
 	
 
 	/**
@@ -88,19 +96,16 @@ public class BookReviewCreate extends JFrame {
 		contentPane.add(lblIsbn);
 		
 		textIsbn = new JTextField();
+		textIsbn.setFont(new Font("D2Coding", Font.BOLD, 20));
 		textIsbn.setEditable(false);
 		textIsbn.setBounds(87, 13, 195, 37);
 		contentPane.add(textIsbn);
 		textIsbn.setColumns(10);
 		
-		JLabel lblCategory = new JLabel("분류");
-		lblCategory.setFont(new Font("D2Coding", Font.BOLD, 23));
-		lblCategory.setBounds(294, 10, 63, 40);
-		contentPane.add(lblCategory);
-		
 		textCategory = new JTextField();
+		textCategory.setFont(new Font("D2Coding", Font.PLAIN, 20));
 		textCategory.setColumns(10);
-		textCategory.setBounds(369, 13, 195, 37);
+		textCategory.setBounds(441, 13, 123, 37);
 		contentPane.add(textCategory);
 		
 		JLabel lbltitle = new JLabel("제목");
@@ -109,6 +114,7 @@ public class BookReviewCreate extends JFrame {
 		contentPane.add(lbltitle);
 		
 		textTitle = new JTextField();
+		textTitle.setFont(new Font("D2Coding", Font.PLAIN, 20));
 		textTitle.setColumns(10);
 		textTitle.setBounds(87, 63, 477, 37);
 		contentPane.add(textTitle);
@@ -127,6 +133,7 @@ public class BookReviewCreate extends JFrame {
 		panelReview.setLayout(null);
 		
 		textBookReview = new JTextArea();
+		textBookReview.setFont(new Font("D2Coding", Font.PLAIN, 18));
 		textBookReview.setBounds(0, 0, 558, 287);
 		panelReview.add(textBookReview);
 		
@@ -155,6 +162,7 @@ public class BookReviewCreate extends JFrame {
 		contentPane.add(lbltitWriter);
 		
 		textWriter = new JTextField();
+		textWriter.setFont(new Font("D2Coding", Font.PLAIN, 20));
 		textWriter.setColumns(10);
 		textWriter.setBounds(87, 113, 195, 37);
 		contentPane.add(textWriter);
@@ -165,9 +173,25 @@ public class BookReviewCreate extends JFrame {
 		contentPane.add(lblPublisher);
 		
 		textPublisher = new JTextField();
+		textPublisher.setFont(new Font("D2Coding", Font.PLAIN, 20));
 		textPublisher.setColumns(10);
 		textPublisher.setBounds(369, 113, 195, 37);
 		contentPane.add(textPublisher);
+		
+		comboBoxCategory = new JComboBox();
+		comboBoxCategory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String selectedText = (String) comboBoxCategory.getSelectedItem();
+				textCategory.setText(selectedText);
+			}
+		});
+		final DefaultComboBoxModel<String> comboBoxModel = 
+				new DefaultComboBoxModel<>(SEARCH_TYPES);
+		comboBoxCategory.setModel(comboBoxModel);
+		comboBoxCategory.setFont(new Font("D2Coding", Font.BOLD, 20));
+		comboBoxCategory.setBounds(306, 12, 123, 40);
+		contentPane.add(comboBoxCategory);
 		
 
 		

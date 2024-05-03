@@ -65,24 +65,24 @@ public class BookReviewMain {
 		
 		textiD = new JTextField();
 		textiD.setFont(new Font("굴림", Font.BOLD, 20));
-		textiD.setBounds(102, 216, 352, 47);
+		textiD.setBounds(70, 221, 308, 44);
 		frame.getContentPane().add(textiD);
 		textiD.setColumns(10);
 		
 		lblId = new JLabel("ID");
-		lblId.setFont(new Font("굴림", Font.BOLD, 30));
-		lblId.setBounds(33, 216, 57, 47);
+		lblId.setFont(new Font("굴림", Font.BOLD, 28));
+		lblId.setBounds(12, 219, 51, 44);
 		frame.getContentPane().add(lblId);
 		
 		lblPw = new JLabel("PW");
-		lblPw.setFont(new Font("굴림", Font.BOLD, 30));
-		lblPw.setBounds(33, 305, 57, 47);
+		lblPw.setFont(new Font("굴림", Font.BOLD, 28));
+		lblPw.setBounds(12, 273, 51, 44);
 		frame.getContentPane().add(lblPw);
 		
 		textPw = new JTextField();
 		textPw.setFont(new Font("굴림", Font.BOLD, 20));
 		textPw.setColumns(10);
-		textPw.setBounds(102, 305, 352, 47);
+		textPw.setBounds(70, 275, 308, 44);
 		frame.getContentPane().add(textPw);
 		
 		btnNewAccount = new JButton("회원가입");
@@ -91,7 +91,7 @@ public class BookReviewMain {
 			}
 		});
 		btnNewAccount.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnNewAccount.setBounds(92, 429, 151, 42);
+		btnNewAccount.setBounds(96, 354, 151, 42);
 		frame.getContentPane().add(btnNewAccount);
 		
 		btnUnLogin = new JButton("비회원 로그인");
@@ -104,17 +104,17 @@ public class BookReviewMain {
 			}
 		});
 		btnUnLogin.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnUnLogin.setBounds(92, 481, 317, 41);
+		btnUnLogin.setBounds(96, 406, 317, 41);
 		frame.getContentPane().add(btnUnLogin);
 		
 		btnAccountSearch = new JButton("찾기");
 		btnAccountSearch.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnAccountSearch.setBounds(255, 429, 151, 42);
+		btnAccountSearch.setBounds(259, 354, 151, 42);
 		frame.getContentPane().add(btnAccountSearch);
 		
 		JButton btnLogin = new JButton("로그인");
-		btnLogin.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnLogin.setBounds(92, 378, 317, 41);
+		btnLogin.setFont(new Font("D2Coding", Font.BOLD, 26));
+		btnLogin.setBounds(390, 219, 115, 98);
 		frame.getContentPane().add(btnLogin);
 	}
 }

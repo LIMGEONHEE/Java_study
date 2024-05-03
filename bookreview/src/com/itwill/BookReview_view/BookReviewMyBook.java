@@ -123,7 +123,8 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 		contentPane.add(searchPanel);
 
 		comboBox = new JComboBox();
-		final DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>(SEARCH_TYPES);
+		final DefaultComboBoxModel<String> comboBoxModel = 
+				new DefaultComboBoxModel<>(SEARCH_TYPES);
 		comboBox.setModel(comboBoxModel);
 		comboBox.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(comboBox);
@@ -134,13 +135,7 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 		textSearchKeyword.setColumns(25);
 
 		btnSearch = new JButton("검색");
-		btnSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				searchKeyword();
-			}
-
-
-		});
+		btnSearch.addActionListener((e) -> search());
 		btnSearch.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(btnSearch);
 
@@ -164,7 +159,7 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 		btnReadAll.setFont(new Font("D2Coding", Font.BOLD, 18));
 		panel.add(btnReadAll);
 
-		btnCreat = new JButton("작성하기");
+		btnCreat = new JButton("추가");
 		btnCreat.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -226,22 +221,22 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 	// DAO 메서드를 호출해서 검색 결과를 가져옴.
 
 
-	private void searchKeyword() {
+	private void search() {
 		
-		int type = comboBox.getSelectedIndex();
-		String keyword = textSearchKeyword.getText();
-		
+		int type = comboBox.getSelectedIndex(); // 콤보박스에서 선택된 아이템의 인덱스
+		String keyword = textSearchKeyword.getText(); // 검색어
 		 if (keyword.equals("")) {
 	            JOptionPane.showMessageDialog(contentPane, 
 	                    "검색어를 입력하세요.", 
 	                    "경고", JOptionPane.WARNING_MESSAGE);
 	            textSearchKeyword.requestFocus();
-		
+		return;
+		 }
 		// DAO 메서드를 호출해서 검색 결과를 가져옴.
 	    List<MyBook> mybook = dao.search(type, keyword);
 	    resetTable(mybook); // 테이블 리셋.
 		 }
-	}
+	
 	
 	private void initializeTable() {
 		// DAO를 사용해서 DB 테이블에서 검색.
@@ -303,9 +298,8 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 
 	@Override
 	public void notifyUpdateSuccess() {
-		// TODO Auto-generated method stub
 		initializeTable();
-        JOptionPane.showMessageDialog(contentPane, "내 서재 업데이트 성공!");
+        JOptionPane.showMessageDialog(contentPane, "업데이트 성공!");
 	}
     
 	

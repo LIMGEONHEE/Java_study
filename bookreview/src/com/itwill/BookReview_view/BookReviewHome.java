@@ -16,9 +16,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ImageIcon;
 
 
 
@@ -31,10 +33,6 @@ public class BookReviewHome extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblName;
-	private JPanel searchPanel;
-	private JTextField textSearchKeyword;
-	private JComboBox comboBox;
-	private JButton btnSearch;
 	private JButton btnHome;
 	private JButton btnInfo;
 	private JButton btnMyBooks;
@@ -43,12 +41,7 @@ public class BookReviewHome extends JFrame {
 	private Component parent;
 	private JPanel panelRecom;
 	private JLabel lblRecom;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_1_1;
-	private JLabel lblNewLabel_1_2;
-	private JLabel lblNewLabel_1_3;
-	private JLabel lblNewLabel_1_2_1;
-	private JLabel lblNewLabel_1_1_1;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -96,34 +89,16 @@ public class BookReviewHome extends JFrame {
 		setContentPane(contentPane);
 contentPane.setLayout(null);
 		
-		lblName = new JLabel("I'will 독서왕");
+		lblName = new JLabel("어서오세요:)");
 		lblName.setForeground(new Color(0, 0, 0));
 		lblName.setBackground(new Color(255, 255, 255));
-		lblName.setHorizontalAlignment(SwingConstants.CENTER);
+		lblName.setHorizontalAlignment(SwingConstants.LEFT);
 		lblName.setLabelFor(lblName);
 		lblName.setFont(new Font("D2Coding", Font.BOLD, 33));
-		lblName.setBounds(0, 0, 584, 44);
+		lblName.setBounds(12, 10, 287, 44);
 		contentPane.add(lblName);
-		
-		searchPanel = new JPanel();
-		searchPanel.setBounds(0, 43, 584, 52);
-		contentPane.add(searchPanel);
-		
-		comboBox = new JComboBox();
 		final DefaultComboBoxModel<String> comboBoxModel = 
                 new DefaultComboBoxModel<>(SEARCH_TYPES);
-        comboBox.setModel(comboBoxModel);
-		comboBox.setFont(new Font("D2Coding", Font.BOLD, 25));
-		searchPanel.add(comboBox);
-		
-		textSearchKeyword = new JTextField();
-		textSearchKeyword.setFont(new Font("D2Coding", Font.BOLD, 25));
-		searchPanel.add(textSearchKeyword);
-		textSearchKeyword.setColumns(25);
-		
-		btnSearch = new JButton("검색");
-		btnSearch.setFont(new Font("D2Coding", Font.BOLD, 25));
-		searchPanel.add(btnSearch);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 509, 584, 52);
@@ -164,47 +139,71 @@ contentPane.setLayout(null);
 		panel.add(btnMyBooks);
 		
 		btnLogout = new JButton("로그아웃");
+		btnLogout.addActionListener(new ActionListener() {
+			// 로그인 창 띄우기
+			public void actionPerformed(ActionEvent e) {
+			BookReviewMain.main(null); // 새로운 로그인 창 띄우기
+			
+			// 현재 창(현재 프레임) 닫기
+	        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(btnLogout);
+	        frame.dispose(); // 현재 창 닫기
+			}
+		});
 		btnLogout.setBackground(new Color(255, 255, 255));
 		btnLogout.setFont(new Font("D2Coding", Font.BOLD, 20));
 		panel.add(btnLogout);
 		
 		panelRecom = new JPanel();
-		panelRecom.setBounds(12, 105, 560, 394);
+		panelRecom.setBounds(12, 88, 560, 416);
 		contentPane.add(panelRecom);
 		panelRecom.setLayout(null);
 		
 		lblRecom = new JLabel("<추천 도서>");
 		lblRecom.setFont(new Font("D2Coding", Font.BOLD, 25));
-		lblRecom.setBounds(12, 10, 269, 43);
+		lblRecom.setBounds(12, 2, 269, 43);
 		panelRecom.add(lblRecom);
 		
-		lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(12, 63, 135, 143);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\인간실격.jpg"));
+		lblNewLabel.setBounds(12, 51, 135, 165);
+		panelRecom.add(lblNewLabel);
+		
+		JButton btnMore = new JButton("더 보기 +");
+		btnMore.setFont(new Font("D2Coding", Font.BOLD, 15));
+		btnMore.setBounds(439, 10, 109, 32);
+		panelRecom.add(btnMore);
+		
+		JLabel lblSasdasd = new JLabel("");
+		lblSasdasd.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\혼자 공부하는 자바 (1).jpg"));
+		lblSasdasd.setBounds(413, 51, 135, 165);
+		panelRecom.add(lblSasdasd);
+		
+		JLabel lblSasdasd_1 = new JLabel("");
+		lblSasdasd_1.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\각본 없음 .jpg"));
+		lblSasdasd_1.setBounds(205, 51, 135, 165);
+		panelRecom.add(lblSasdasd_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\세이노 (1).jpg"));
+		lblNewLabel_1.setBounds(12, 241, 135, 165);
 		panelRecom.add(lblNewLabel_1);
 		
-		lblNewLabel_1_1 = new JLabel("New label");
-		lblNewLabel_1_1.setBounds(413, 63, 135, 143);
-		panelRecom.add(lblNewLabel_1_1);
+		JLabel lblSasdasd_2 = new JLabel("");
+		lblSasdasd_2.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\초보자를 위한 sql (1).jpg"));
+		lblSasdasd_2.setBounds(413, 241, 135, 165);
+		panelRecom.add(lblSasdasd_2);
 		
-		lblNewLabel_1_2 = new JLabel("New label");
-		lblNewLabel_1_2.setBounds(212, 63, 135, 143);
-		panelRecom.add(lblNewLabel_1_2);
+		JLabel lblSasdasd_1_1 = new JLabel("");
+		lblSasdasd_1_1.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\자바스크립트 (1).jpg"));
+		lblSasdasd_1_1.setBounds(205, 241, 135, 165);
+		panelRecom.add(lblSasdasd_1_1);
 		
-		lblNewLabel_1_3 = new JLabel("New label");
-		lblNewLabel_1_3.setBounds(12, 241, 135, 143);
-		panelRecom.add(lblNewLabel_1_3);
-		
-		lblNewLabel_1_2_1 = new JLabel("New label");
-		lblNewLabel_1_2_1.setBounds(212, 241, 135, 143);
-		panelRecom.add(lblNewLabel_1_2_1);
-		
-		lblNewLabel_1_1_1 = new JLabel("New label");
-		lblNewLabel_1_1_1.setBounds(413, 241, 135, 143);
-		panelRecom.add(lblNewLabel_1_1_1);
-		
-		JButton btnMore = new JButton("더 보기...");
-		btnMore.setFont(new Font("D2Coding", Font.PLAIN, 15));
-		btnMore.setBounds(439, 21, 109, 32);
-		panelRecom.add(btnMore);
+		JLabel lblSubtitle = new JLabel("오늘은 어떤 책을 읽으셨나요?");
+		lblSubtitle.setHorizontalAlignment(SwingConstants.LEFT);
+		lblSubtitle.setForeground(Color.BLACK);
+		lblSubtitle.setFont(new Font("D2Coding", Font.PLAIN, 20));
+		lblSubtitle.setBackground(Color.WHITE);
+		lblSubtitle.setBounds(12, 55, 287, 27);
+		contentPane.add(lblSubtitle);
 	}
 }

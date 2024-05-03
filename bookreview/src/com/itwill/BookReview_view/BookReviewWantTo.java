@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -18,6 +19,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.itwill.BookReview_controller.BookReviewDao;
+import com.itwill.BookReview_model.MyBook;
 
 public class BookReviewWantTo extends JFrame {
 	
@@ -41,6 +46,10 @@ public class BookReviewWantTo extends JFrame {
 	private JButton btnHome;
 	private JButton btnDelete;
 	private JTable tableWantTo;
+	private DefaultTableModel tableModel;
+	
+	
+	private BookReviewDao dao = BookReviewDao.getInstance();
 
 	/**
 	 * Launch the application.
@@ -87,7 +96,7 @@ public class BookReviewWantTo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		lblName = new JLabel("읽고 싶은 책");
+		lblName = new JLabel("관심 도서");
 		lblName.setForeground(new Color(0, 0, 0));
 		lblName.setBackground(new Color(255, 255, 255));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -125,40 +134,35 @@ public class BookReviewWantTo extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnDetail.setBounds(238, 4, 113, 43);
+		btnDetail.setBounds(350, 4, 107, 43);
 		btnDetail.setBackground(new Color(255, 255, 255));
 		btnDetail.setForeground(new Color(0, 0, 0));
-		btnDetail.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnDetail.setFont(new Font("D2Coding", Font.BOLD, 18));
 		panel.add(btnDetail);
 
 		btnReadAll = new JButton("목록보기");
-		btnReadAll.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnReadAll.setBounds(471, 4, 113, 43);
+		// TODO
+//		btnReadAll.addActionListener((e) -> initializeTable());
+		btnReadAll.setBounds(131, 4, 107, 43);
 		btnReadAll.setBackground(new Color(255, 255, 255));
-		btnReadAll.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnReadAll.setFont(new Font("D2Coding", Font.BOLD, 18));
 		panel.add(btnReadAll);
 
 		btnCreat = new JButton("추가");
-		btnCreat.setBounds(124, 4, 113, 43);
+		btnCreat.setBounds(240, 4, 107, 43);
 		btnCreat.setBackground(new Color(255, 255, 255));
-		btnCreat.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnCreat.setFont(new Font("D2Coding", Font.BOLD, 18));
 		panel.add(btnCreat);
 		
 		btnDelete = new JButton("삭제");
-		btnDelete.setBounds(352, 4, 113, 43);
-		btnDelete.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnDelete.setBounds(464, 4, 107, 43);
+		btnDelete.setFont(new Font("D2Coding", Font.BOLD, 18));
 		btnDelete.setBackground(Color.WHITE);
 		panel.add(btnDelete);
 
 		btnHome = new JButton("홈");
-		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnHome.setBounds(12, 4, 113, 43);
+		btnHome.addActionListener((e) -> dispose());
+		btnHome.setBounds(12, 4, 107, 43);
 		btnHome.setBackground(new Color(255, 255, 255));
 		btnHome.setFont(new Font("D2Coding", Font.BOLD, 20));
 		panel.add(btnHome);
@@ -170,5 +174,19 @@ public class BookReviewWantTo extends JFrame {
 		tableWantTo = new JTable();
 		scrollPane.setViewportView(tableWantTo);
 	}
+	
+	// TODO 테이블 바꾸기
+//	private void initializeTable() {
+//		// DAO를 사용해서 DB테이블에서 검색.
+//		List<MyBook> mybook = dao.read();
+//		resetTable(mybook); // 테이블 리셋
+//	}
+//
+	// TODO 테이블 바꾸기
+//	private void resetTable(List<MyBook> mybook) {
+//		// 검색한 내용을 JTable에 보여줌 - JTable의 테이블 모델을 재설정.
+//		 tableModel = new DefaultTableModel(null, COLUMN_NAMES); // 테이블 모델 리셋.
+		
+//	}
 
 }
