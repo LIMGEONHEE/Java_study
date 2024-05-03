@@ -97,6 +97,8 @@ public class BookReviewDao {
         return mybook;
     }
     
+ 
+    
  // read() 메서드에서 사용할 SQL 문장: select * from mybook order by isbn desc
     private static final String SQL_SELECT_ALL = String.format(
             "select * from %s order by %s desc", 

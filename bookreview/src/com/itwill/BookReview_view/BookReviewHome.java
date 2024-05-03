@@ -129,7 +129,7 @@ contentPane.setLayout(null);
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 읽지 않은 책 페이지 창 띄우기
-				BookReviewWantTo.showBookReviewUnRead(parent);
+				BookReviewWishBook.showBookReviewWishBook(parent);
 				parent.setVisible(false);
 				
 			}

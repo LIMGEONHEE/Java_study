@@ -22,9 +22,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import com.itwill.BookReview_controller.BookReviewDao;
-import com.itwill.BookReview_model.MyBook;
+import com.itwill.BookReview_model.WishBook;
 
-public class BookReviewWantTo extends JFrame {
+public class BookReviewWishBook extends JFrame {
 	
 	private static final String[] SEARCH_TYPES  = { 
             "제목", "저자", "제목+저자" 
@@ -54,11 +54,11 @@ public class BookReviewWantTo extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void showBookReviewUnRead(Component parent) {
+	public static void showBookReviewWishBook(Component parent) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BookReviewWantTo frame = new BookReviewWantTo(parent);
+					BookReviewWishBook frame = new BookReviewWishBook(parent);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -70,7 +70,7 @@ public class BookReviewWantTo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	private BookReviewWantTo(Component parent) {
+	private BookReviewWishBook(Component parent) {
 		this.parent = parent;
 
 		initialize();
@@ -178,10 +178,10 @@ public class BookReviewWantTo extends JFrame {
 	// TODO 테이블 바꾸기
 //	private void initializeTable() {
 //		// DAO를 사용해서 DB테이블에서 검색.
-//		List<MyBook> mybook = dao.read();
+//		List<WishBook> mybook = dao.read();
 //		resetTable(mybook); // 테이블 리셋
 //	}
-//
+
 	// TODO 테이블 바꾸기
 //	private void resetTable(List<MyBook> mybook) {
 //		// 검색한 내용을 JTable에 보여줌 - JTable의 테이블 모델을 재설정.
