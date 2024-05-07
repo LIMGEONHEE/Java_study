@@ -115,8 +115,8 @@ public class BookReviewDetail extends JFrame {
 		textIsbn.setColumns(10);
 		
 		textCategory = new JTextField();
+		textCategory.setEditable(false);
 		textCategory.setFont(new Font("D2Coding", Font.PLAIN, 20));
-		textIsbn.setEditable(false);
 		textCategory.setBounds(430, 13, 134, 37);
 		contentPane.add(textCategory);
 		textCategory.setColumns(10);
@@ -149,7 +149,7 @@ public class BookReviewDetail extends JFrame {
 		contentPane.add(lblPublisher);
 		
 		textPublisher = new JTextField();
-		textPublisher.setFont(new Font("굴림", Font.PLAIN, 20));
+		textPublisher.setFont(new Font("D2Coding", Font.PLAIN, 20));
 		textPublisher.setColumns(10);
 		textPublisher.setBounds(369, 113, 195, 37);
 		contentPane.add(textPublisher);
@@ -219,15 +219,15 @@ public class BookReviewDetail extends JFrame {
 	
 	private void UpdateMyBook() {
 		String title = textTitle.getText();
-		String category = textCategory.getText();
 		String writer = textWriter.getText();
+		String category = textCategory.getText();
 		String publisher = textPublisher.getText();
 		String bookreview = textReview.getText();
 		
 		boolean isEmpty = 
 				title.equals("") || 
-				category.equals("") ||
 				writer.equals("") || 
+				category.equals("") ||
 				publisher.equals("") || 
 				bookreview.equals("");
 		
@@ -238,7 +238,7 @@ public class BookReviewDetail extends JFrame {
             return;
 		
 	}
-		MyBook mybook = new MyBook(MyBookIsbn, title, category,writer, publisher ,bookreview,  null, null);
+		MyBook mybook = new MyBook(MyBookIsbn, title, writer, category, publisher ,bookreview,  null, null);
 		int result = dao.update(mybook);
 		if (result == 1) {
             app.notifyUpdateSuccess();

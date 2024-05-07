@@ -2,6 +2,8 @@ package com.itwill.BookReview_model;
 
 import java.time.LocalDateTime;
 
+
+
 public class WishBook {
 
 	public static final class Entity {
@@ -9,69 +11,69 @@ public class WishBook {
 		public static final String TBL_WISHBOOK = "WISHBOOK";
 
 		// 데이터베이스 BLOGS 테이블의 컬럼 이름들을 상수로 선언.
-		public static final String COL_TITLE = "TITLE";
-		public static final String COL_WRITER = "WRITER";
-		public static final String COL_PUBLISHER = "PUBLISHER";
+		public static final String COL_TITLE1 = "TITLE1";
+		public static final String COL_WRITER1 = "WRITER1";
+		public static final String COL_CATEGORY1 = "CATEGORY1";
+		public static final String COL_PUBLISHER1 = "PUBLISHER1";
 		public static final String COL_MEMO = "MEMO";
-		public static final String COL_CATEGORY = "CATEGORY";
-		public static final String COL_CREATED_TIME = "CREATE_TIME";
-		public static final String COL_MODIFIED_TIME = "MODIFIED_TIME";
+		public static final String COL_CREATED_TIME1 = "CREATE_TIME1";
+		public static final String COL_MODIFIED_TIME1 = "MODIFIED_TIME1";
 
 	}
 	
-	private String title;
-	private String writer;
-	private String category;
-	private String publisher;
+	private String title1;
+	private String writer1;
+	private String publisher1;
+	private String category1;
 	private String memo;
-	private LocalDateTime createdTime;
-	private LocalDateTime modifiedTime;
+	private LocalDateTime createdTime1;
+	private LocalDateTime modifiedTime1;
 	
 	public WishBook() {}
 	
-	public WishBook(String title, String writer, String publisher, String memo,
-			String category, LocalDateTime createdTime, LocalDateTime modifiedTime) {
+	public WishBook(String title1, String writer1, String publisher1, String category1, 
+			String memo, LocalDateTime createdTime1, LocalDateTime modifiedTime1) {
 		super();
-		this.title = title;
-		this.writer = writer;
-		this.publisher = publisher;
+		this.title1 = title1;
+		this.writer1 = writer1;
+		this.publisher1 = publisher1;
+		this.category1 = category1;
 		this.memo = memo;
-		this.category = category;
-		this.createdTime = createdTime;
-		this.modifiedTime = modifiedTime;
+		this.createdTime1 = createdTime1;
+		this.modifiedTime1 = modifiedTime1;
 		
 	}
 
-	public String getTitle() {
-		return title;
+	public String getTitle1() {
+		return title1;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitle1(String title1) {
+		this.title1 = title1;
 	}
 
-	public String getWriter() {
-		return writer;
+	public String getWriter1() {
+		return writer1;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setWriter1(String writer1) {
+		this.writer1 = writer1;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getCategory1() {
+		return category1;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCategory1(String category1) {
+		this.category1 = category1;
 	}
 
-	public String getPublisher() {
-		return publisher;
+	public String getPublisher1() {
+		return publisher1;
 	}
 
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
+	public void setPublisher1(String publisher1) {
+		this.publisher1 = publisher1;
 	}
 
 	public String getMemo() {
@@ -82,26 +84,27 @@ public class WishBook {
 		this.memo = memo;
 	}
 
-	public LocalDateTime getCreatedTime() {
-		return createdTime;
+	public LocalDateTime getCreatedTime1() {
+		return createdTime1;
 	}
 
-	public void setCreatedTime(LocalDateTime createdTime) {
-		this.createdTime = createdTime;
+	public void setCreatedTime1(LocalDateTime createdTime1) {
+		this.createdTime1 = createdTime1;
 	}
 
-	public LocalDateTime getModifiedTime() {
-		return modifiedTime;
+	public LocalDateTime getModifiedTime1() {
+		return modifiedTime1;
 	}
 
-	public void setModifiedTime(LocalDateTime modifiedTime) {
-		this.modifiedTime = modifiedTime;
+	public void setModifiedTime1(LocalDateTime modifiedTime1) {
+		this.modifiedTime1 = modifiedTime1;
 	}
 
 	@Override
 	public String toString() {
-		return "WishBook [title=" + title + ", writer=" + writer + ", category=" + category + ", publisher=" + publisher
-				+ ", memo=" + memo + ", createdTime=" + createdTime + ", modifiedTime=" + modifiedTime + "]";
+		return "WishBook [title1=" + title1 + ", writer1=" + writer1 + ", category1=" + category1 + ", publisher1="
+				+ publisher1 + ", memo=" + memo + ", createdTime1=" + createdTime1 + ", modifiedTime1=" + modifiedTime1
+				+ "]";
 	}
 
 }

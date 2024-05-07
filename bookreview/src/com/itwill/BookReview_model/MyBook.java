@@ -12,9 +12,9 @@ public class MyBook {
 		public static final String COL_ISBN = "ISBN";
 		public static final String COL_TITLE = "TITLE";
 		public static final String COL_WRITER = "WRITER";
+		public static final String COL_CATEGORY = "CATEGORY";
 		public static final String COL_PUBLISHER = "PUBLISHER";
 		public static final String COL_BOOKREVIEW = "BOOKREVIEW";
-		public static final String COL_CATEGORY = "CATEGORY";
 		public static final String COL_CREATED_TIME = "CREATE_TIME";
 		public static final String COL_MODIFIED_TIME = "MODIFIED_TIME";
 	}
@@ -31,15 +31,15 @@ public class MyBook {
 	public MyBook() {
 	}
 
-	public MyBook(int isbn, String title, String writer, String publisher, String bookreview,
-			String category, LocalDateTime createdTime, LocalDateTime modifiedTime) {
+	public MyBook(int isbn, String title, String writer, String category, String publisher,
+			String bookreview, LocalDateTime createdTime, LocalDateTime modifiedTime) {
 		super();
 		this.isbn = isbn;
 		this.title = title;
 		this.writer = writer;
+		this.category = category;
 		this.publisher = publisher;
 		this.bookreview = bookreview;
-		this.category = category;
 		this.createdTime = createdTime;
 		this.modifiedTime = modifiedTime;
 		

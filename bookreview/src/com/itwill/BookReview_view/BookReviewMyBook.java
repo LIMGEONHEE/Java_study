@@ -29,6 +29,7 @@ import com.itwill.BookReview_view.BookReviewCreate.CreateNotify;
 import com.itwill.BookReview_view.BookReviewDetail.UpdateNotify;
 
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNotify {
 	
@@ -115,26 +116,31 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblName.setLabelFor(lblName);
 		lblName.setFont(new Font("D2Coding", Font.BOLD, 33));
-		lblName.setBounds(0, 0, 584, 44);
+		lblName.setBounds(0, 0, 584, 52);
 		contentPane.add(lblName);
 
 		searchPanel = new JPanel();
-		searchPanel.setBounds(0, 43, 584, 52);
+		searchPanel.setBounds(0, 54, 584, 73);
 		contentPane.add(searchPanel);
 
 		comboBox = new JComboBox();
+		comboBox.setBounds(3, 5, 155, 59);
 		final DefaultComboBoxModel<String> comboBoxModel = 
 				new DefaultComboBoxModel<>(SEARCH_TYPES);
+		searchPanel.setLayout(null);
 		comboBox.setModel(comboBoxModel);
 		comboBox.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(comboBox);
 
 		textSearchKeyword = new JTextField();
+		textSearchKeyword.setBounds(163, 5, 331, 59);
 		textSearchKeyword.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(textSearchKeyword);
 		textSearchKeyword.setColumns(25);
 
-		btnSearch = new JButton("검색");
+		btnSearch = new JButton("");
+		btnSearch.setBounds(499, 5, 83, 59);
+		btnSearch.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\search.png"));
 		btnSearch.addActionListener((e) -> search());
 		btnSearch.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(btnSearch);
@@ -191,7 +197,7 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 		panel.add(btnDetail);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 105, 584, 404);
+		scrollPane.setBounds(0, 128, 584, 371);
 		contentPane.add(scrollPane);
 
 		tableMyBook = new JTable();

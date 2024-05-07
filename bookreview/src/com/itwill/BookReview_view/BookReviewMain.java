@@ -15,14 +15,8 @@ import javax.swing.SwingConstants;
 public class BookReviewMain {
 
 	private JFrame frame;
-	private JTextField textiD;
 	private JLabel lblName;
-	private JLabel lblId;
-	private JLabel lblPw;
-	private JButton btnNewAccount;
 	private JButton btnUnLogin;
-	private JButton btnAccountSearch;
-	private JTextField textPw;
 
 	/**
 	 * Launch the application.
@@ -53,48 +47,17 @@ public class BookReviewMain {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 533, 577);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("로그인");
 		
-		lblName = new JLabel("I'will 독서왕");
+		lblName = new JLabel("I'will 독서노트");
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
-		lblName.setFont(new Font("D2Coding", Font.BOLD, 60));
+		lblName.setFont(new Font("D2Coding", Font.BOLD, 50));
 		lblName.setBounds(33, 88, 448, 83);
 		frame.getContentPane().add(lblName);
 		
-		textiD = new JTextField();
-		textiD.setFont(new Font("굴림", Font.BOLD, 20));
-		textiD.setBounds(70, 221, 308, 44);
-		frame.getContentPane().add(textiD);
-		textiD.setColumns(10);
-		
-		lblId = new JLabel("ID");
-		lblId.setFont(new Font("굴림", Font.BOLD, 28));
-		lblId.setBounds(12, 219, 51, 44);
-		frame.getContentPane().add(lblId);
-		
-		lblPw = new JLabel("PW");
-		lblPw.setFont(new Font("굴림", Font.BOLD, 28));
-		lblPw.setBounds(12, 273, 51, 44);
-		frame.getContentPane().add(lblPw);
-		
-		textPw = new JTextField();
-		textPw.setFont(new Font("굴림", Font.BOLD, 20));
-		textPw.setColumns(10);
-		textPw.setBounds(70, 275, 308, 44);
-		frame.getContentPane().add(textPw);
-		
-		btnNewAccount = new JButton("회원가입");
-		btnNewAccount.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewAccount.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnNewAccount.setBounds(96, 354, 151, 42);
-		frame.getContentPane().add(btnNewAccount);
-		
-		btnUnLogin = new JButton("비회원 로그인");
+		btnUnLogin = new JButton("들어가기");
 		btnUnLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -104,17 +67,7 @@ public class BookReviewMain {
 			}
 		});
 		btnUnLogin.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnUnLogin.setBounds(96, 406, 317, 41);
+		btnUnLogin.setBounds(158, 293, 201, 41);
 		frame.getContentPane().add(btnUnLogin);
-		
-		btnAccountSearch = new JButton("찾기");
-		btnAccountSearch.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnAccountSearch.setBounds(259, 354, 151, 42);
-		frame.getContentPane().add(btnAccountSearch);
-		
-		JButton btnLogin = new JButton("로그인");
-		btnLogin.setFont(new Font("D2Coding", Font.BOLD, 26));
-		btnLogin.setBounds(390, 219, 115, 98);
-		frame.getContentPane().add(btnLogin);
 	}
 }

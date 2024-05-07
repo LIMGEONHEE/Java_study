@@ -52,6 +52,14 @@ public class BookReviewCreate extends JFrame {
 	 private JTextField textPublisher;
 	 private JTextArea textBookReview;
 	 private JComboBox comboBoxCategory;
+	 private JLabel lblIsbn;
+	 private JLabel lbltitle;
+	 private JLabel lblBookReview;
+	 private JPanel panelReview;
+	 private JButton btnSave;
+	 private JButton btnClose;
+	 private JLabel lbltitWriter;
+	 private JLabel lblPublisher;
 	
 
 	/**
@@ -90,7 +98,7 @@ public class BookReviewCreate extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblIsbn = new JLabel("ISBN");
+		lblIsbn = new JLabel("ISBN");
 		lblIsbn.setFont(new Font("D2Coding", Font.BOLD, 23));
 		lblIsbn.setBounds(12, 10, 63, 40);
 		contentPane.add(lblIsbn);
@@ -103,12 +111,13 @@ public class BookReviewCreate extends JFrame {
 		textIsbn.setColumns(10);
 		
 		textCategory = new JTextField();
+		textCategory.setEditable(false);
 		textCategory.setFont(new Font("D2Coding", Font.PLAIN, 20));
 		textCategory.setColumns(10);
 		textCategory.setBounds(441, 13, 123, 37);
 		contentPane.add(textCategory);
 		
-		JLabel lbltitle = new JLabel("제목");
+		lbltitle = new JLabel("제목");
 		lbltitle.setFont(new Font("D2Coding", Font.BOLD, 23));
 		lbltitle.setBounds(12, 60, 63, 40);
 		contentPane.add(lbltitle);
@@ -119,7 +128,7 @@ public class BookReviewCreate extends JFrame {
 		textTitle.setBounds(87, 63, 477, 37);
 		contentPane.add(textTitle);
 		
-		JLabel lblBookReview = new JLabel("서평");
+		lblBookReview = new JLabel("서평");
 		lblBookReview.setFont(new Font("D2Coding", Font.BOLD, 23));
 		lblBookReview.setBounds(12, 161, 63, 40);
 		contentPane.add(lblBookReview);
@@ -128,7 +137,7 @@ public class BookReviewCreate extends JFrame {
 		scrollPaneReview.setBounds(12, 211, 560, 289);
 		contentPane.add(scrollPaneReview);
 		
-		JPanel panelReview = new JPanel();
+		panelReview = new JPanel();
 		scrollPaneReview.setViewportView(panelReview);
 		panelReview.setLayout(null);
 		
@@ -142,21 +151,21 @@ public class BookReviewCreate extends JFrame {
 		panel_1.setBounds(0, 509, 584, 52);
 		contentPane.add(panel_1);
 		
-		JButton btnSave = new JButton("저장");
+		btnSave = new JButton("저장");
 		btnSave.addActionListener((e) -> createNewMyBook());
-		btnSave.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnSave.setFont(new Font("D2Coding", Font.BOLD, 25));
 		btnSave.setBackground(Color.WHITE);
 		btnSave.setBounds(50, 0, 215, 53);
 		panel_1.add(btnSave);
 		
-		JButton btnClose = new JButton("취소");
+		btnClose = new JButton("취소");
 		btnClose.addActionListener((e) -> dispose());
-		btnClose.setFont(new Font("D2Coding", Font.BOLD, 20));
+		btnClose.setFont(new Font("D2Coding", Font.BOLD, 25));
 		btnClose.setBackground(Color.WHITE);
 		btnClose.setBounds(315, 0, 215, 53);
 		panel_1.add(btnClose);
 		
-		JLabel lbltitWriter = new JLabel("저자");
+		lbltitWriter = new JLabel("저자");
 		lbltitWriter.setFont(new Font("D2Coding", Font.BOLD, 23));
 		lbltitWriter.setBounds(12, 110, 63, 40);
 		contentPane.add(lbltitWriter);
@@ -167,7 +176,7 @@ public class BookReviewCreate extends JFrame {
 		textWriter.setBounds(87, 113, 195, 37);
 		contentPane.add(textWriter);
 		
-		JLabel lblPublisher = new JLabel("출판사");
+		lblPublisher = new JLabel("출판사");
 		lblPublisher.setFont(new Font("D2Coding", Font.BOLD, 23));
 		lblPublisher.setBounds(294, 110, 69, 40);
 		contentPane.add(lblPublisher);
@@ -188,7 +197,7 @@ public class BookReviewCreate extends JFrame {
 		});
 		final DefaultComboBoxModel<String> comboBoxModel = 
 				new DefaultComboBoxModel<>(SEARCH_TYPES);
-		comboBoxCategory.setModel(comboBoxModel);
+		comboBoxCategory.setModel(new DefaultComboBoxModel(new String[] {"(분류)", "소설", "자기계발", "시", "만화", "요리", "여행", "예술"}));
 		comboBoxCategory.setFont(new Font("D2Coding", Font.BOLD, 20));
 		comboBoxCategory.setBounds(306, 12, 123, 40);
 		contentPane.add(comboBoxCategory);
@@ -202,8 +211,8 @@ public class BookReviewCreate extends JFrame {
         // DAO 메서드를 사용해서 DB 테이블에 insert.
         String title = textTitle.getText();
         String writer= textWriter.getText();
-        String category = textCategory.getText();
         String publisher = textPublisher.getText();
+        String category = textCategory.getText();
         String bookreview = textBookReview.getText();
         		if (title.equals("") || writer.equals("") || 
         				category.equals("")	|| publisher.equals("")	||bookreview.equals("") ) {
@@ -215,7 +224,7 @@ public class BookReviewCreate extends JFrame {
             return;
         }
         
-        MyBook mybook = new MyBook(0, title, writer, publisher ,bookreview, category, null, null);
+        MyBook mybook = new MyBook(0, title, writer, category, publisher ,bookreview, null, null);
         int result = dao.create(mybook);
         if (result == 1) {
             // BlogMain 프레임에게 테이블 삽입 성공을 알려줌.

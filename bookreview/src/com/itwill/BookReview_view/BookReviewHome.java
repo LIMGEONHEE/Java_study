@@ -69,7 +69,7 @@ public class BookReviewHome extends JFrame {
 	}
 	
 	public void initialize() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		int x = 0;
 		int y = 0;
@@ -167,11 +167,6 @@ contentPane.setLayout(null);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\인간실격.jpg"));
 		lblNewLabel.setBounds(12, 51, 135, 165);
 		panelRecom.add(lblNewLabel);
-		
-		JButton btnMore = new JButton("더 보기 +");
-		btnMore.setFont(new Font("D2Coding", Font.BOLD, 15));
-		btnMore.setBounds(439, 10, 109, 32);
-		panelRecom.add(btnMore);
 		
 		JLabel lblSasdasd = new JLabel("");
 		lblSasdasd.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\books\\혼자 공부하는 자바 (1).jpg"));
