@@ -24,6 +24,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 
 public class BookReviewDetail extends JFrame {
 	
@@ -83,6 +84,7 @@ public class BookReviewDetail extends JFrame {
 	 * Create the frame.
 	 */
 	private BookReviewDetail(Component parent, int MyBookIsbn, UpdateNotify app) {
+		setTitle("책 수정");
 		this.parent = parent;
 		this.app = app;
 		this.MyBookIsbn = MyBookIsbn;
@@ -97,6 +99,7 @@ public class BookReviewDetail extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(215, 209, 187));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -154,13 +157,13 @@ public class BookReviewDetail extends JFrame {
 		textPublisher.setBounds(369, 113, 195, 37);
 		contentPane.add(textPublisher);
 		
-		lblBookReview = new JLabel("서평");
+		lblBookReview = new JLabel("감상평");
 		lblBookReview.setFont(new Font("D2Coding", Font.BOLD, 23));
-		lblBookReview.setBounds(12, 161, 63, 40);
+		lblBookReview.setBounds(12, 161, 86, 40);
 		contentPane.add(lblBookReview);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 205, 552, 293);
+		scrollPane.setBounds(12, 205, 552, 283);
 		contentPane.add(scrollPane);
 		
 		panelReview = new JPanel();
@@ -169,15 +172,17 @@ public class BookReviewDetail extends JFrame {
 		
 		textReview = new JTextArea();
 		textReview.setFont(new Font("D2Coding", Font.PLAIN, 16));
-		textReview.setBounds(0, 0, 550, 291);
+		textReview.setBounds(0, 0, 550, 281);
 		panelReview.add(textReview);
 		
 		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(215, 209, 187));
 		panel_1.setLayout(null);
-		panel_1.setBounds(0, 508, 584, 52);
+		panel_1.setBounds(0, 498, 584, 63);
 		contentPane.add(panel_1);
 		
 		btnSave = new JButton("업데이트");
+		btnSave.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-update-done-material-filled\\icons8-update-done-25.png"));
 		btnSave.addActionListener((e) -> UpdateMyBook());
 		btnSave.setFont(new Font("D2Coding", Font.BOLD, 20));
 		btnSave.setBackground(Color.WHITE);
@@ -185,6 +190,7 @@ public class BookReviewDetail extends JFrame {
 		panel_1.add(btnSave);
 		
 		btnClose = new JButton("취소");
+		btnClose.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-close-ios-17-glyph\\icons8-close-25.png"));
 		btnClose.addActionListener((e) -> dispose());
 		btnClose.setFont(new Font("D2Coding", Font.BOLD, 20));
 		btnClose.setBackground(Color.WHITE);

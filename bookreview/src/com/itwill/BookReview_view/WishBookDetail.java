@@ -25,6 +25,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class WishBookDetail extends JFrame implements UpdateNotify  {
 	
@@ -75,6 +76,7 @@ public class WishBookDetail extends JFrame implements UpdateNotify  {
 	 * Create the frame.
 	 */
 	private WishBookDetail(Component parent, String wishBookTitle, UpdateNotify app) {
+		setTitle("관심 상세");
 		this.parent = parent;
 		this.wishBookTitle = wishBookTitle;
 		this.app = app;
@@ -98,6 +100,7 @@ public class WishBookDetail extends JFrame implements UpdateNotify  {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(215, 209, 187));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -170,11 +173,13 @@ public class WishBookDetail extends JFrame implements UpdateNotify  {
 		contentPane.add(textFieldMemo);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(215, 209, 187));
 		panel_1.setLayout(null);
-		panel_1.setBounds(0, 499, 584, 52);
+		panel_1.setBounds(12, 499, 560, 62);
 		contentPane.add(panel_1);
 		
 		btnUpdate = new JButton("업데이트");
+		btnUpdate.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-update-done-material-filled\\icons8-update-done-25.png"));
 		btnUpdate.addActionListener((e) -> UpdateWishBook());
 		btnUpdate.setFont(new Font("D2Coding", Font.BOLD, 25));
 		btnUpdate.setBackground(Color.WHITE);
@@ -182,6 +187,7 @@ public class WishBookDetail extends JFrame implements UpdateNotify  {
 		panel_1.add(btnUpdate);
 		
 		btnClose = new JButton("취소");
+		btnClose.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-close-ios-17-glyph\\icons8-close-25.png"));
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

@@ -24,6 +24,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class WishBookCreate extends JFrame {
 	
@@ -76,6 +77,7 @@ public class WishBookCreate extends JFrame {
 	 * Create the frame.
 	 */
 	private WishBookCreate(Component parent, CreateNotify app) {
+		setTitle("관심 추가");
 		this.parent = parent;
 		this.app = app;
 		
@@ -96,6 +98,7 @@ public class WishBookCreate extends JFrame {
 			setLocationRelativeTo(null); // 화면 중앙에 JFrame을 띄움.
 		}
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(215, 209, 187));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -146,10 +149,11 @@ public class WishBookCreate extends JFrame {
 				new DefaultComboBoxModel<>(SEARCH_TYPES);
 		comboBoxCategory.setModel(new DefaultComboBoxModel(new String[] {"(분류)", "소설", "자기계발", "시", "만화", "요리", "여행", "예술"}));
 		comboBoxCategory.setFont(new Font("D2Coding", Font.BOLD, 23));
-		comboBoxCategory.setBounds(292, 152, 132, 44);
+		comboBoxCategory.setBounds(292, 151, 132, 44);
 		contentPane.add(comboBoxCategory);
 		
 		textFieldCategory = new JTextField();
+		textFieldCategory.setEditable(false);
 		textFieldCategory.setFont(new Font("D2Coding", Font.PLAIN, 23));
 		textFieldCategory.setColumns(10);
 		textFieldCategory.setBounds(440, 151, 132, 43);
@@ -157,11 +161,11 @@ public class WishBookCreate extends JFrame {
 		
 		lblMebo = new JLabel("메모");
 		lblMebo.setFont(new Font("D2Coding", Font.BOLD, 25));
-		lblMebo.setBounds(12, 218, 82, 44);
+		lblMebo.setBounds(14, 213, 82, 44);
 		contentPane.add(lblMebo);
 		
 		scrollPaneMemo = new JScrollPane();
-		scrollPaneMemo.setBounds(12, 267, 560, 216);
+		scrollPaneMemo.setBounds(12, 253, 560, 230);
 		contentPane.add(scrollPaneMemo);
 		
 		panel = new JPanel();
@@ -170,16 +174,18 @@ public class WishBookCreate extends JFrame {
 		
 		textFieldMemo = new JTextField();
 		textFieldMemo.setFont(new Font("D2Coding", Font.PLAIN, 18));
-		textFieldMemo.setBounds(0, 0, 558, 214);
+		textFieldMemo.setBounds(0, 0, 558, 228);
 		panel.add(textFieldMemo);
 		textFieldMemo.setColumns(10);
 		
 		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(215, 209, 187));
 		panel_1.setLayout(null);
-		panel_1.setBounds(0, 509, 584, 52);
+		panel_1.setBounds(12, 493, 560, 58);
 		contentPane.add(panel_1);
 		
 		btnSave = new JButton("저장");
+		btnSave.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-save-material-sharp\\icons8-save-25.png"));
 		btnSave.addActionListener((e) -> createNewWishBook());
 		btnSave.setFont(new Font("D2Coding", Font.BOLD, 25));
 		btnSave.setBackground(Color.WHITE);
@@ -187,6 +193,7 @@ public class WishBookCreate extends JFrame {
 		panel_1.add(btnSave);
 		
 		btnClose = new JButton("취소");
+		btnClose.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-close-ios-17-glyph\\icons8-close-25.png"));
 		btnClose.addActionListener((e) -> dispose());
 		btnClose.setFont(new Font("D2Coding", Font.BOLD, 25));
 		btnClose.setBackground(Color.WHITE);

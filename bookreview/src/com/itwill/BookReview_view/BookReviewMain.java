@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 
 public class BookReviewMain {
@@ -17,6 +19,7 @@ public class BookReviewMain {
 	private JFrame frame;
 	private JLabel lblName;
 	private JButton btnUnLogin;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -46,15 +49,16 @@ public class BookReviewMain {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(215, 209, 187));
 		frame.setBounds(100, 100, 533, 577);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setTitle("로그인");
+		frame.setTitle("입장");
 		
-		lblName = new JLabel("I'will 독서노트");
+		lblName = new JLabel("이름 추천 받아요~");
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
-		lblName.setFont(new Font("D2Coding", Font.BOLD, 50));
-		lblName.setBounds(33, 88, 448, 83);
+		lblName.setFont(new Font("D2Coding", Font.BOLD, 45));
+		lblName.setBounds(67, 60, 391, 62);
 		frame.getContentPane().add(lblName);
 		
 		btnUnLogin = new JButton("들어가기");
@@ -66,8 +70,13 @@ public class BookReviewMain {
 				frame.setVisible(false); // 버튼을 누르면 창 끄기
 			}
 		});
-		btnUnLogin.setFont(new Font("D2Coding", Font.BOLD, 28));
-		btnUnLogin.setBounds(158, 293, 201, 41);
+		btnUnLogin.setFont(new Font("D2Coding", Font.BOLD, 25));
+		btnUnLogin.setBounds(183, 408, 141, 41);
 		frame.getContentPane().add(btnUnLogin);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\book.jpg"));
+		lblNewLabel.setBounds(32, 132, 450, 261);
+		frame.getContentPane().add(lblNewLabel);
 	}
 }

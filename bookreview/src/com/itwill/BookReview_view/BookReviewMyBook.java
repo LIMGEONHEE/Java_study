@@ -83,6 +83,7 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 	 * Create the frame.
 	 */
 	private BookReviewMyBook(Component parent) {
+		setTitle("내 서재");
 		this.parent = parent;
 
 		initialize();
@@ -104,6 +105,7 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 			setLocationRelativeTo(null); // 화면 중앙에 JFrame을 띄움.
 		}
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(215, 209, 187));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -120,52 +122,55 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 		contentPane.add(lblName);
 
 		searchPanel = new JPanel();
-		searchPanel.setBounds(0, 54, 584, 73);
+		searchPanel.setBackground(new Color(215, 209, 187));
+		searchPanel.setBounds(10, 50, 562, 68);
 		contentPane.add(searchPanel);
 
 		comboBox = new JComboBox();
-		comboBox.setBounds(3, 5, 155, 59);
+		comboBox.setBounds(0, 5, 119, 53);
 		final DefaultComboBoxModel<String> comboBoxModel = 
 				new DefaultComboBoxModel<>(SEARCH_TYPES);
 		searchPanel.setLayout(null);
 		comboBox.setModel(comboBoxModel);
-		comboBox.setFont(new Font("D2Coding", Font.BOLD, 25));
+		comboBox.setFont(new Font("D2Coding", Font.BOLD, 23));
 		searchPanel.add(comboBox);
 
 		textSearchKeyword = new JTextField();
-		textSearchKeyword.setBounds(163, 5, 331, 59);
-		textSearchKeyword.setFont(new Font("D2Coding", Font.BOLD, 25));
+		textSearchKeyword.setBounds(126, 5, 346, 53);
+		textSearchKeyword.setFont(new Font("D2Coding", Font.PLAIN, 23));
 		searchPanel.add(textSearchKeyword);
 		textSearchKeyword.setColumns(25);
 
 		btnSearch = new JButton("");
-		btnSearch.setBounds(499, 5, 83, 59);
-		btnSearch.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\search.png"));
+		btnSearch.setBackground(new Color(255, 255, 255));
+		btnSearch.setBounds(475, 5, 87, 53);
+		btnSearch.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-search-ios-17-filled\\icons8-search-25.png"));
 		btnSearch.addActionListener((e) -> search());
 		btnSearch.setFont(new Font("D2Coding", Font.BOLD, 25));
 		searchPanel.add(btnSearch);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 509, 584, 52);
+		panel.setBounds(10, 499, 562, 52);
 		contentPane.add(panel);
-		panel.setLayout(null);
 
 		btnHome = new JButton("홈");
+		btnHome.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-home-ios-17-filled\\icons8-home-25.png"));
 		btnHome.addActionListener((e)->dispose());
-		btnHome.setBounds(0, 4, 113, 43);
+		panel.setLayout(new GridLayout(0, 5, 0, 0));
 		btnHome.setBackground(new Color(255, 255, 255));
 		btnHome.setForeground(new Color(0, 0, 0));
 		btnHome.setFont(new Font("D2Coding", Font.BOLD, 18));
 		panel.add(btnHome);
 
-		btnReadAll = new JButton("목록보기");
+		btnReadAll = new JButton("목록");
+		btnReadAll.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-clipboard-list-windows\\icons8-clipboard-list-25.png"));
 		btnReadAll.addActionListener((e) -> initializeTable());
-		btnReadAll.setBounds(117, 4, 113, 43);
 		btnReadAll.setBackground(new Color(255, 255, 255));
 		btnReadAll.setFont(new Font("D2Coding", Font.BOLD, 18));
 		panel.add(btnReadAll);
 
 		btnCreat = new JButton("추가");
+		btnCreat.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-add-ios-17-filled\\icons8-add-25.png"));
 		btnCreat.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -175,29 +180,27 @@ public class BookReviewMyBook extends JFrame implements CreateNotify, UpdateNoti
 				
 			}
 		});
-		btnCreat.setBounds(231, 4, 113, 43);
 		btnCreat.setBackground(new Color(255, 255, 255));
 		btnCreat.setFont(new Font("D2Coding", Font.BOLD, 18));
 		panel.add(btnCreat);
 		
 		btnDelete = new JButton("삭제");
+		btnDelete.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-close-ios-17-glyph\\icons8-close-25.png"));
 		btnDelete.addActionListener((e) -> deletoMyBook());
-		btnDelete.setBounds(459, 4, 113, 43);
+		
+				btnDetail = new JButton("상세");
+				btnDetail.setIcon(new ImageIcon("C:\\Users\\itwill\\Desktop\\icon\\icons8-detail-ios-17-outlined\\icons8-detail-25.png"));
+				btnDetail.addActionListener((e) -> showBookReviewDetail());
+				panel.add(btnDetail);
+				btnDetail.setBackground(new Color(255, 255, 255));
+				btnDetail.setFont(new Font("D2Coding", Font.BOLD, 18));
+				panel.add(btnDetail);
 		btnDelete.setFont(new Font("D2Coding", Font.BOLD, 18));
 		btnDelete.setBackground(Color.WHITE);
 		panel.add(btnDelete);
 
-		btnDetail = new JButton("상세보기");
-		btnDetail.addActionListener((e) -> showBookReviewDetail());
-		panel.add(btnDetail);
-
-		btnDetail.setBounds(346, 4, 113, 43);
-		btnDetail.setBackground(new Color(255, 255, 255));
-		btnDetail.setFont(new Font("D2Coding", Font.BOLD, 18));
-		panel.add(btnDetail);
-
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 128, 584, 371);
+		scrollPane.setBounds(10, 128, 562, 361);
 		contentPane.add(scrollPane);
 
 		tableMyBook = new JTable();
