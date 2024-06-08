@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="bookreview/src"/>
+	<classpathentry kind="src" path="lab_contact/src"/>
+	<classpathentry kind="src" path="lab01_intro/src"/>
+	<classpathentry kind="src" path="lab02_variable/src"/>
+	<classpathentry kind="src" path="lab03_control/lab03_control/src"/>
+	<classpathentry kind="src" path="lab03_control/src"/>
+	<classpathentry kind="src" path="lab04_arrary/src"/>
+	<classpathentry kind="src" path="lab05_method/src"/>
+	<classpathentry kind="src" path="lab06_class/src"/>
+	<classpathentry kind="src" path="lab07_inheritance/src"/>
+	<classpathentry kind="src" path="lab08_mvc/src"/>
+	<classpathentry kind="src" path="lab09_exception/src"/>
+	<classpathentry kind="src" path="lab11_collection/src"/>
+	<classpathentry kind="src" path="lab12_file/src"/>
+	<classpathentry kind="src" path="lab13_inner/src"/>
+	<classpathentry kind="src" path="lab14_thread/src"/>
+	<classpathentry kind="src" path="lab15_swing/src"/>
+	<classpathentry kind="src" path="lab16_jdbc/src"/>
+	<classpathentry kind="src" path="library/src"/>
+	<classpathentry kind="src" path="sql/src"/>
+	<classpathentry kind="lib" path="bookreview/lib/ojdbc11-23.3.0.23.09.jar"/>
+	<classpathentry kind="lib" path="lab16_jdbc/lib/ojdbc11-23.3.0.23.09.jar"/>
+	<classpathentry kind="lib" path="library/lib/ojdbc11-23.3.0.23.09.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
